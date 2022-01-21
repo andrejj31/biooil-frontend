@@ -1,0 +1,27 @@
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  background-color: #f8f8f8;
+}
+.option {
+  margin-right: 5rem;
+  &__heading {
+    color: $color-grey;
+    font-size: 2rem;
+    // text-transform: uppercase;
+  }
+  &__options {
+    list-style: none;
+
+    li {
+      a {
+        color: $color-grey-3;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

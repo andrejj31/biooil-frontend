@@ -1,0 +1,224 @@
+.cart {
+  background-color: $color-light;
+  padding: 5rem 0;
+  margin-top: 10rem;
+  &__product {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-column-gap: 15%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    // box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__info {
+    display: flex;
+    gap: 15%;
+    @media only screen and (max-width: $bp-large) {
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__empty {
+    padding: 20rem 0;
+    text-align: center;
+    color: $color-green;
+    line-height: 1.2;
+
+    h3 {
+      font-size: 3rem;
+
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 2rem;
+      font-style: italic;
+    }
+
+    button {
+      margin-top: 5rem;
+      background-color: $color-green !important;
+      text-transform: uppercase;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    h3 {
+      color: $color-green-light;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    span {
+      color: #b9b9b9;
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      align-items: center;
+    }
+  }
+
+  &__img {
+    background-color: $color-white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+    padding: 2rem 5rem;
+    display: inline-block;
+    img {
+      width: 6rem;
+    }
+  }
+
+  &__quan {
+    display: flex;
+    background-color: $color-white;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    border-radius: 2rem;
+    padding: 0.2rem 5rem;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
+    margin-top: auto;
+    align-self: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+      align-self: center;
+      margin-top: 1rem;
+    }
+    img {
+      width: 3rem;
+      height: 3rem;
+    }
+    span {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $color-grey;
+    }
+  }
+  &__symbol {
+    cursor: pointer;
+  }
+
+  &__prices {
+    display: flex;
+    justify-content: space-around;
+
+    @media only screen and (max-width: $bp-small) {
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 21.875em) {
+      flex-direction: column;
+    }
+  }
+
+  &__price {
+    align-self: center;
+    color: $color-grey;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+
+  &__priceTitle {
+    font-style: italic;
+  }
+
+  &__remove {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    color: $color-green-light;
+    font-weight: 800;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  &__bar {
+    border-bottom: 2px solid #e8e8e8;
+    border-top: 2px solid #e8e8e8;
+    list-style-type: none;
+    font-weight: 500;
+    font-size: 2rem;
+    color: $color-grey;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+  }
+
+  &__form {
+    margin-top: 8rem;
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 4rem;
+      grid-row-gap: 1rem;
+
+      @media only screen and (max-width: $bp-large) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      button {
+        grid-column: 1/-1;
+        justify-self: start;
+        margin-top: 3rem;
+
+        @media only screen and (max-width: $bp-large) {
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+
+  &__form-warning {
+    margin-top: 2rem;
+    color: $color-grey-3;
+    font-size: 1.3rem;
+
+    span {
+      color: #ff2b3e;
+    }
+  }
+
+  &__resume {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    h3:first-of-type {
+      color: $color-grey-3;
+      font-weight: 500;
+      font-size: 2rem;
+    }
+  }
+}
+
+#cart__sidebar {
+  display: grid;
+  grid-template-columns: 40% repeat(2, 1fr);
+  gap: 15%;
+}

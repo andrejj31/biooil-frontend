@@ -1,0 +1,33 @@
+.admin {
+  background-color: $color-light;
+  padding: 5rem 0;
+  margin-top: 10rem;
+  &__options {
+  }
+
+  &__orders {
+    margin-top: 10rem;
+  }
+}
+.admin-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  align-self: stretch;
+}
+
+.admin-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.admin-cta {
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background-color: #3ea763;
+}

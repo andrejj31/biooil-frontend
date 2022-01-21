@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px
+  scroll-behavior: smooth;
+
+  @media only screen and (max-width: $bp-max) {
+    font-size: 60.5%;
+  }
+
+  @media only screen and (max-width: $bp-huge) {
+    font-size: 58.5%;
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 55.5%;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 52.5%;
+  }
+}
+
+body {
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  background-color: $color-document;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+// *::selection {
+//   background-color: $color-pink;
+//   color: white;
+// }
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+.mapboxgl-popup-close-button {
+  right: 0.5rem !important;
+  top: 0.2rem !important;
+}
+
+button {
+  font-family: inherit;
+}

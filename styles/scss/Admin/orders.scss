@@ -1,0 +1,78 @@
+.orders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, auto));
+  grid-gap: 2rem;
+  &__head {
+    color: $color-grey;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+}
+.order {
+  background-color: #f8f8f8;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &__id {
+    font-size: 1.4rem;
+  }
+  &__base {
+    margin-bottom: 1rem;
+  }
+
+  &__status {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #747474;
+  }
+
+  &__success {
+    color: $color-green-light;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    color: $color-grey;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  &__body {
+    h3 {
+      color: $color-grey-3;
+      font-weight: 600;
+    }
+  }
+
+  &__group {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  &__cta {
+    padding: 0.2rem 1rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+
+  &__fail {
+    background-color: #ff3939;
+  }
+}

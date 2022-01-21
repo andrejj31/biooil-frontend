@@ -1,0 +1,48 @@
+.editor {
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  &__head {
+    background-color: #ecf0f1;
+    padding: 0.5rem;
+
+    button {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+  }
+  &__content,
+  &__content:focus-visible {
+    min-height: 20rem;
+    border: 1px solid #ecf0f1;
+    border-bottom: 3px solid #ecf0f1;
+    border-top: 0;
+    padding: 20px;
+    outline: none;
+    background-color: #f3f3f3;
+    font-size: 1.6rem;
+    color: $color-grey;
+    transition: all 0.2s;
+
+    h3 {
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid #2ed47b;
+      width: fit-content;
+      padding-bottom: 0.2rem;
+    }
+  }
+
+  &__content * {
+    font-size: 1.6rem !important;
+    font-family: inherit !important;
+    background-color: transparent !important;
+  }
+}
+
+.content-invalid {
+  border-bottom: 3px solid #ff2b3e !important;
+}

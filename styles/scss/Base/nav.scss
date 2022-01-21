@@ -1,0 +1,147 @@
+.nav {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 0;
+  position: relative;
+  margin-bottom: 0.5rem;
+
+  &__additional {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-large) {
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+  }
+
+  &__cart {
+    width: 3rem;
+    cursor: pointer;
+  }
+
+  &__count {
+    font-weight: 600;
+    color: $color-green;
+    font-size: 1.3rem;
+  }
+
+  &__logo {
+    @media only screen and (max-width: $bp-medium) {
+      max-width: 15rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      max-width: 10rem;
+    }
+  }
+  &__mobile {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-large) {
+      flex-wrap: wrap;
+      justify-content: stretch;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+    width: 4rem;
+    cursor: pointer;
+
+    @media only screen and (max-width: $bp-large) {
+      display: block;
+    }
+  }
+  &__li {
+    @media only screen and (max-width: $bp-large) {
+      margin-right: 0;
+      padding: 0.5rem;
+      &:not(:first-child) {
+        border-top: 1px solid $color-green-light;
+      }
+    }
+  }
+  &__tabs {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    max-height: auto !important;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    @media only screen and (max-width: $bp-large) {
+      position: absolute;
+      padding: 2rem 0.5rem;
+      left: 0;
+      background-color: $color-white;
+      flex-direction: column;
+      width: 100%;
+      align-items: stretch;
+      top: 100%;
+      z-index: 10000;
+      box-shadow: 0px 0px 5px #cccccc;
+      border-top: 3px solid $color-green-light;
+      opacity: 0;
+      visibility: hidden;
+    }
+    li {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      a,
+      a:visited {
+        font-weight: bold;
+        font-size: 1.6rem;
+        color: $color-green;
+      }
+
+      &:hover {
+        ul {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        @media only screen and (max-width: $bp-large) {
+          ul {
+            position: relative;
+          }
+        }
+      }
+      ul {
+        list-style: none;
+        background-color: $color-light;
+        box-shadow: 0px 0px 5px #cccccc;
+        padding: 1rem 2rem;
+        border-top: 5px solid $color-green-light;
+        height: auto;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.8s;
+        overflow: hidden;
+        margin-top: 1rem;
+
+        @media only screen and (max-width: $bp-large) {
+          opacity: 0;
+          visibility: hidden;
+          border-top: 1px solid $color-green-light;
+          box-shadow: none;
+          padding: 1rem 0;
+          width: 100%;
+          margin-top: 0;
+        }
+
+        li {
+          border: none;
+        }
+      }
+    }
+  }
+}

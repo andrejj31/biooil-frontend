@@ -1,0 +1,74 @@
+.landing {
+  background: linear-gradient(
+      103.81deg,
+      rgba(5, 100, 14, 0.2) 0%,
+      rgba(2, 92, 11, 0.16) 100%
+    ),
+    url("/Home/unsplash_kW1P8R-UoWI.png");
+  background-color: #00d26d;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    max-width: 100vw;
+    padding: 3rem 0;
+    > * {
+      flex: 1;
+    }
+
+    @media only screen and (max-width: $bp-huge) {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 5rem 0 0 0;
+    }
+    // repeat(auto-fit, minmax(30rem, auto))
+  }
+  &__heading {
+    font-weight: 800;
+    font-size: 4rem;
+    line-height: 49px;
+
+    span {
+      display: block;
+    }
+  }
+  &__desc {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  &__products {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    justify-content: end;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(2, minmax(20.6rem, max-content));
+    grid-template-rows: repeat(2, 1fr);
+    @media only screen and (max-width: $bp-huge) {
+      grid-template-columns: repeat(auto-fit, minmax(20.6rem, auto));
+      grid-template-rows: auto;
+      justify-content: stretch;
+    }
+
+    @media only screen and (max-width: $bp-largest) {
+      grid-template-columns: repeat(2, minmax(22rem, auto));
+      justify-content: center;
+    }
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: repeat(1, minmax(22rem, auto));
+      grid-gap: 0;
+      grid-row-gap: 1rem;
+      margin: 3rem 0;
+    }
+  }
+
+  &__cta {
+    font-size: 1.3rem;
+    color: $color-green;
+    font-weight: bold;
+    margin-top: 4rem;
+  }
+}

@@ -1,0 +1,120 @@
+.item {
+  &__head {
+    background-color: $color-light;
+    margin-top: 5rem;
+    padding: 5rem 0;
+
+    @media only screen and (max-width: $bp-large) {
+      padding-top: 0;
+    }
+  }
+
+  &__headcontent {
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: $bp-large) {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    max-height: 50rem;
+  }
+  &__headtypography {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+
+    h3 {
+      color: $color-green-light;
+      font-weight: bold;
+      font-size: 5rem;
+      line-height: 1;
+    }
+    span {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.7rem;
+      font-weight: bold;
+      line-height: 1.3;
+      color: $color-grey;
+      margin-top: 3rem;
+      @media only screen and (max-width: $bp-hugest) {
+        font-size: 1.6rem;
+      }
+      @media only screen and (max-width: $bp-largest) {
+        font-size: 1.5rem;
+      }
+    }
+    a {
+      align-self: flex-start;
+      font-weight: 600;
+      font-size: 1.4rem;
+      padding: 1rem 6rem;
+      border-radius: 1.8rem;
+      margin-top: 5rem;
+    }
+  }
+
+  &__more {
+    background-color: $color-light;
+    margin-top: 10rem;
+    padding: 5rem 0;
+  }
+  &__list {
+    h3 {
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid $color-green-light;
+      width: fit-content;
+      padding-bottom: 0.2rem;
+      color: $color-grey-2;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $color-grey;
+
+      @media only screen and (max-width: $bp-largest) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1rem;
+  }
+  &__article {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid $color-green-light;
+      width: fit-content;
+      padding-bottom: 0.2rem;
+      color: $color-grey-2;
+    }
+
+    p {
+      margin-top: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $color-grey;
+
+      @media only screen and (max-width: $bp-largest) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

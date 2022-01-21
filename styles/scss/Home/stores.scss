@@ -1,0 +1,59 @@
+.stores {
+  margin-top: 20rem;
+  &__box {
+    background-color: $color-light;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 0;
+    margin-top: 2rem;
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      justify-content: center;
+    }
+    a {
+      &:hover img {
+        filter: grayscale(0%);
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        width: 50%;
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+      img {
+        width: 15rem;
+        height: 15rem;
+        filter: grayscale(100%);
+        transition: filter 0.4s;
+
+        @media only screen and (max-width: $bp-hugest) {
+          width: 13rem;
+          height: 13rem;
+        }
+        @media only screen and (max-width: $bp-huge) {
+          width: 10rem;
+          height: 10rem;
+        }
+
+        @media only screen and (max-width: $bp-large) {
+          width: 8rem;
+          height: 8rem;
+        }
+        @media only screen and (max-width: $bp-medium) {
+          width: 7rem;
+          height: 7rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "biooil",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "compile:sass": "node-sass styles/scss/global.scss styles/css/style.comp.css",
+    "compress:css": "node-sass styles/css/style.prefix.css styles/css/style.css --output-style compressed",
+    "prefix:css": "postcss --use autoprefixer -b \"last 5 versions\" styles/css/style.comp.css -o styles/css/style.prefix.css",
+    "watch:sass": "node-sass styles/scss/global.scss styles/css/style.css -w"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "autoprefixer": "^9.8.6",
+    "mapbox-gl": "^2.5.1",
+    "next": "12.0.1",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.2.1",
+    "postcss-cli-simple": "^3.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-map-gl": "^6.1.17",
+    "sass-extract": "^2.1.0",
+    "sass-extract-loader": "^1.1.0",
+    "sass-loader": "^10.2.0"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.1",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "sass-variable-loader": "^0.1.2",
+    "webpack": "^5.64.4"
+  }
+}

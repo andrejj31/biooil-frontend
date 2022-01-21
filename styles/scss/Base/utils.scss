@@ -1,0 +1,159 @@
+.center-content {
+  margin: 0 25rem;
+
+  @media only screen and (max-width: $bp-max) {
+    margin: 0 20rem;
+  }
+  @media only screen and (max-width: $bp-hugest) {
+    margin: 0 15rem;
+  }
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0 10rem;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    margin: 0 5rem;
+  }
+}
+
+.btn,
+.btn:focus {
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.basic-cta,
+.basic-cta:focus {
+  background-color: #00d060;
+  color: $color-white;
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.basic-cta-round {
+  border-radius: 1.8rem;
+  padding: 1rem 6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.round-cta {
+  background: $color-white;
+  color: $color-green;
+  border-radius: 3.5rem;
+  padding: 1.2rem 3.5rem;
+  display: inline-block;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.map-container {
+  height: 50rem;
+}
+
+.section-heading {
+  font-weight: bold;
+  font-size: 3rem;
+  color: $color-green;
+  text-align: center;
+  font-style: italic;
+
+  @media only screen and (max-width: $bp-hugest) {
+    border-radius: 15%;
+    width: auto;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 2.5rem;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 70%;
+  }
+}
+
+.unset-img {
+  width: 100%;
+}
+.unset-img > span {
+  position: unset !important;
+}
+
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.form {
+  &-group {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+  }
+  &-label {
+    color: $color-grey-3;
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+  &-input,
+  &-input:focus {
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+    font-size: 1.3rem;
+    padding: 1rem;
+    font-weight: 500;
+    color: #c7c5c5;
+    border-bottom: 3px solid transparent;
+    transition: all 0.5s;
+  }
+  &-input:focus:invalid {
+    border-bottom: 3px solid #ff2b3e;
+  }
+  &-input::placeholder {
+    color: #c7c5c5;
+    font-weight: 500;
+  }
+  &-textarea,
+  &-textarea:focus,
+  &-textarea:focus-visible {
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+    font-size: 1.3rem;
+    padding: 1rem;
+    font-weight: 500;
+    color: #c7c5c5;
+    border-bottom: 3px solid transparent;
+    transition: all 0.5s;
+    resize: vertical;
+  }
+  &-textarea::placeholder {
+    color: #c7c5c5;
+    font-weight: 500;
+  }
+  &-textarea:focus:invalid {
+    border-bottom: 3px solid #ff2b3e;
+  }
+}
+
+.modal {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  color: $color-white;
+  padding: 0.3rem 0;
+  &-success {
+    background-color: $color-green-light-2;
+  }
+  &-fail {
+    background-color: #ed7a17;
+  }
+}

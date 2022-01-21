@@ -1,0 +1,73 @@
+.popup {
+  max-width: 40rem;
+  margin: 10% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-white;
+  border-radius: 1rem;
+  padding: 5rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  @media only screen and (max-width: $bp-large) {
+    margin: 15% auto;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 20% auto;
+    max-width: 70%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    max-width: 80%;
+  }
+
+  &__img {
+    width: 18rem;
+    height: 18rem;
+    margin-bottom: 1rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+
+  &__msg {
+    text-align: center;
+
+    h3 {
+      font-weight: 600;
+      color: $color-grey;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: $color-grey;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  &__cta {
+    margin-top: 1rem;
+    &-fail {
+      background-color: #ed7a17 !important;
+    }
+  }
+}
+
+.overlay {
+  //   visibility: hidden;
+  //   opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.2s;
+}
