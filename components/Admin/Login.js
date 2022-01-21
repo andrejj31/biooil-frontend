@@ -29,7 +29,7 @@ export default function Login() {
         req={{
           url: "login",
           method: "POST",
-          options: { credentials: "include" },
+          options: { credentials: "include", withCredentials: true },
         }}
         cta={"Најави се"}
         file={false}

@@ -12,6 +12,7 @@ const AuthProvider = ({ children }) => {
         `${process.env.NEXT_PUBLIC_SERVER_API}checkUser`,
         {
           credentials: "include",
+          withCredentials: true,
         }
       );
       const json = await res.json();
