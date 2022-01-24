@@ -1,7 +1,9 @@
 import React from "react";
 import Product from "../Reusable/Product";
 import ProductsData from "./../../data/ProductsData";
-export default function Landing() {
+export default function Landing(props) {
+  console.log(props);
+  const products = props.data;
   return (
     <section className="landing">
       <div className="landing__content center-content">
@@ -20,34 +22,39 @@ export default function Landing() {
           </a>
         </div>
         <div className="landing__products">
-          <Product
+          {products.map((product, i) => {
+            return (
+              <Product
+                key={i}
+                translate={`${i % 2 !== 0 ? true : false}`}
+                {...product}
+              ></Product>
+            );
+          })}
+          {/* <Product
             translate={true}
             imgUrl={"maslo-afion.png"}
-            link={"maslo_afion"}
             pridobivki={ProductsData[0].landing}
             title={"Масло од афион"}
           ></Product>
           <Product
             translate={false}
             imgUrl={"namaz-afion.png"}
-            link={"namaz_afion"}
             pridobivki={ProductsData[1].landing}
             title={"Намаз од афион"}
           ></Product>
           <Product
             translate={true}
             imgUrl={"soncogledovo-maslo.png"}
-            link={"soncogledovo-maslo"}
             pridobivki={ProductsData[2].landing}
             title={"Сончогледово масло"}
           ></Product>
           <Product
             translate={false}
             imgUrl={"ekstra-virgin.png"}
-            link={"soncogledovo-maslo"}
             pridobivki={ProductsData[2].landing}
             title={"Сончогледово екстра вирџин масло"}
-          ></Product>
+          ></Product> */}
         </div>
       </div>
     </section>

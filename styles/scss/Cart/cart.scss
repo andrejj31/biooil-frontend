@@ -142,6 +142,9 @@
     h3 {
       font-size: 2rem;
       font-weight: 500;
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.6rem;
+      }
     }
   }
 

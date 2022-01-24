@@ -3,10 +3,13 @@ import AformInput from "./AformInput";
 import useForm from "../../hooks/useForm";
 import useFetch from "../../hooks/useFetch";
 import FormModal from "../../components/Reusable/FormModal";
+import { useRouter } from "next/router";
+import { useAuthContext } from "../../context/authContext";
 export default function Aform(props) {
   const { fields, initialValues, req, title, cta, file, msg, wt } = props;
   const [body, setBody] = useState("");
   const [modal, setModal] = useState(null);
+  const { user, initializing } = useAuthContext();
 
   const { formData, handleInputChange, handleTextareaChange, setFormData } =
     useForm({
@@ -35,7 +38,6 @@ export default function Aform(props) {
         if (wt && wt === "E-ORDER-USER") {
           setBody({ buyer: formData });
         } else {
-          console.log(e.target.querySelector(".content-invalid"));
           setBody(formData);
         }
       }
@@ -44,16 +46,16 @@ export default function Aform(props) {
 
   // Dokolku korisnikot se logira
   useEffect(() => {
-    if (props.login && data) {
-      // setUser(user)
+    if (props.login && data && data.status === "success") {
+      setTimeout(() => {
+        location.replace("/");
+      }, 1000);
     }
   }, [data, error]);
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       if (data?.status == "success") {
-        console.log(data);
         setModal({ msg: "Успешно", status: "success" });
         setBody("");
       } else if (data?.status == "fail" || "error") {

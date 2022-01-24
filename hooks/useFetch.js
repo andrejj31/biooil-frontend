@@ -28,7 +28,6 @@ export default function useFetch(
           ...options,
         };
       }
-      console.log(requestOptions);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_API}${url}`,
         requestOptions

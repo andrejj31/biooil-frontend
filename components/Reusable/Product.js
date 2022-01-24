@@ -3,18 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import myLoader from "../../utils/loader";
 
-export default function Product({
-  title,
-  translate,
-  imgUrl,
-  link,
-  pridobivki,
-}) {
-  // console.log(process.env.SERVER_IMAGES);
-  // console.log(loader);
-  const url = `/Products/${imgUrl}`;
+export default function Product({ landing, title, image, slug, translate }) {
+  // landing === undefined && console.log(title);
+  let boolValue = /true/i.test(translate);
+  const url = `Products/${image}.png`;
   return (
-    <article className={`product ${translate ? "product__translate" : ""}`}>
+    <article
+      className={`product ${boolValue == true ? "product__translate" : ""}`}
+    >
       {/* <img className="product__img" src={`/Products/${imgUrl}`} alt="" /> */}
       {/* <img
         className="product__img"
@@ -34,17 +30,20 @@ export default function Product({
         <div className="product__about">
           <h4>{title}</h4>
           <div className="product__benefits">
-            {pridobivki.map((prid, id) => {
-              return (
-                <div key={id} className="product__benefit">
-                  <img src="/Home/benefit.png" alt="" />
-                  <p>{prid}</p>
-                </div>
-              );
-            })}
+            {landing &&
+              landing.map((prid, id) => {
+                return (
+                  <div key={id} className="product__benefit">
+                    <img src="/Home/benefit.png" alt="" />
+                    <p>{prid}</p>
+                  </div>
+                );
+              })}
           </div>
-          <Link href={`products/${link}`}>
-            <a className="product__cta basic-cta">прочитај повеќе</a>
+          <Link href={`products/${slug}`}>
+            <a href={`products/${slug}`} className="product__cta basic-cta">
+              прочитај повеќе
+            </a>
           </Link>
         </div>
       </div>

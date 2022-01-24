@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="footer__icons">
           <img src="/Icons/facebook.png" alt="facebook" />
           <img src="/Icons/instagram.png" alt="instagram" />
-          <img src="/Icons/messenger.png" alt="messenger" />
+          <img src="/Icons/mail.png" alt="messenger" />
         </div>
       </div>
     </footer>

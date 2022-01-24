@@ -1,36 +1,71 @@
 import React from "react";
 import AdminOptions from "../Reusable/AdminOptions";
 export default function Order(props) {
-  const { buyer, products, status, fullPrice, quantity, _id: id } = props;
+  const {
+    buyer,
+    products,
+    status,
+    fullPrice,
+    quantity,
+    _id: id,
+    createdAt,
+  } = props;
 
-  console.log(products);
-  const adminButtons = [
-    {
-      title: "Означи како завршена",
-      type: "modify",
-      location: `orders/${id}`,
-      req: {
-        method: "PATCH",
-        data: { status: "done" },
-        options: { credentials: "include" },
+  const d = new Date(createdAt);
+  const d2 = d.toString().substring(4, 15);
+  const d3 = d2.slice(0, 3) + " /" + d2.slice(3, 6) + " /" + d2.slice(6, 11);
+
+  const date = new Date(createdAt).toLocaleString();
+
+  let adminButtons;
+
+  if (status === "done") {
+    adminButtons = [
+      {
+        title: "Измени ја нарачката",
+        type: "edit",
+        location: `/admin/orders/${id}/edit`,
       },
-    },
-    {
-      title: "Измени ја нарачката",
-      type: "edit",
-      location: `/admin/orders/${id}/edit`,
-    },
-    {
-      title: "Избриши ја нарачката",
-      type: "delete",
-      location: `orders/${id}`,
-      req: {
-        method: "DELETE",
-        data: { delete: true },
-        options: { credentials: "include" },
+      {
+        title: "Избриши ја нарачката",
+        type: "delete",
+        location: `orders/${id}`,
+        req: {
+          method: "DELETE",
+          data: { delete: true },
+          options: { credentials: "include" },
+        },
       },
-    },
-  ];
+    ];
+  } else {
+    adminButtons = [
+      {
+        title: "Означи како завршена",
+        type: "modify",
+        location: `orders/${id}`,
+        req: {
+          method: "PATCH",
+          data: { status: "done" },
+          options: { credentials: "include" },
+        },
+      },
+      {
+        title: "Измени ја нарачката",
+        type: "edit",
+        location: `/admin/orders/${id}/edit`,
+      },
+      {
+        title: "Избриши ја нарачката",
+        type: "delete",
+        location: `orders/${id}`,
+        req: {
+          method: "DELETE",
+          data: { delete: true },
+          options: { credentials: "include" },
+        },
+      },
+    ];
+  }
   return (
     <div className="order">
       <div className="order__base">
@@ -41,6 +76,7 @@ export default function Order(props) {
             {status === "done" ? "доставено" : "на чекање"}
           </span>
         </p>
+        <p className="order__date">Креирано на: {date}</p>
       </div>
 
       <div className="order__group">

@@ -4,7 +4,6 @@ import Head from "next/head";
 
 export default function Edit(props) {
   const { buyer, products, status, quantity, fullPrice } = props.data;
-  console.log(products);
 
   const { name, tel, postal, email, city, address } = buyer;
 
@@ -62,7 +61,11 @@ export default function Edit(props) {
         fields={buyerFields}
         title={"Измени ги податоците за купувачот"}
         initialValues={buyerInitialValues}
-        req={{ url: `orders/${props.data._id}`, method: "PATCH" }}
+        req={{
+          url: `orders/${props.data._id}`,
+          method: "PATCH",
+          options: { credentials: "include" },
+        }}
         cta={"Измени ги податоците за купувачот"}
         wt={"E-ORDER-USER"}
       ></Aform>
@@ -70,7 +73,11 @@ export default function Edit(props) {
         fields={orderFields}
         title={"Измени ги податоците за нарачката"}
         initialValues={orderInitialValues}
-        req={{ url: `orders/${props.data._id}`, method: "PATCH" }}
+        req={{
+          url: `orders/${props.data._id}`,
+          method: "PATCH",
+          options: { credentials: "include" },
+        }}
         cta={"Измени ги податоците за нарачката"}
       ></Aform>
       {/* {products.map((pr, i) => {

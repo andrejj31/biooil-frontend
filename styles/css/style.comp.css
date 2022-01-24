@@ -322,6 +322,9 @@ button {
       color: #343434;
       font-size: 1.6rem;
       margin-bottom: 0.25rem; }
+      @media only screen and (max-width: 31.25em) {
+        .footer__content p {
+          font-size: 1.4rem; } }
     .footer__content span {
       color: #3e3939;
       font-weight: 600;
@@ -916,7 +919,6 @@ button {
       flex-direction: column; } }
   .team__article img {
     border-radius: 50%;
-    width: 20%;
     height: 13rem;
     object-fit: cover;
     border: 5px solid #2ed47b;
@@ -1091,6 +1093,9 @@ button {
     .cart__price h3 {
       font-size: 2rem;
       font-weight: 500; }
+      @media only screen and (max-width: 31.25em) {
+        .cart__price h3 {
+          font-size: 1.6rem; } }
   .cart__priceTitle {
     font-style: italic; }
   .cart__remove {
@@ -1175,7 +1180,7 @@ button {
   font-weight: 600;
   color: white;
   cursor: pointer;
-  background-color: #3ea763; }
+  background-color: #00d060; }
 
 .options {
   display: flex;
@@ -1249,6 +1254,11 @@ button {
     cursor: pointer; }
   .order__fail {
     background-color: #ff3939; }
+  .order__date {
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #747474; }
 
 .aform {
   max-width: 35%;

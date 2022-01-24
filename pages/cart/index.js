@@ -144,7 +144,7 @@ export default function Cart() {
             onClick={() => router.back()}
             className="basic-cta basic-cta-round"
           >
-            Вратисе назад
+            Врати се назад
           </button>
         </div>
       </>

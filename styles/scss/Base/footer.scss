@@ -22,6 +22,10 @@
       color: $color-grey;
       font-size: 1.6rem;
       margin-bottom: 0.25rem;
+
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.4rem;
+      }
     }
     span {
       color: $color-grey-2;

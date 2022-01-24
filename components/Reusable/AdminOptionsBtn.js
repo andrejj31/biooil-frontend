@@ -20,7 +20,7 @@ export default function AdminOptionsBtn({ title, type, location, req = {} }) {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data && data.status === "success") {
       setTimeout(() => {
         router.reload(window.location.pathname);
       }, 1000);

@@ -15,6 +15,7 @@ export default function Employee({ name, position, resume, image, _id: id }) {
       req: {
         method: "DELETE",
         data: { delete: "true" },
+        options: { credentials: "include" },
       },
     },
   ];

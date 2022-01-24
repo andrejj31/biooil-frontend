@@ -3,7 +3,6 @@ import BlogPost from "../../../components/Blogs/BlogPost";
 
 export default function Blog(props) {
   const { author, title, slug, position, image, content } = props.data;
-  console.log(content);
   return (
     <section className="blog">
       <div className="center-content">

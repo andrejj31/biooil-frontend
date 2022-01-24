@@ -5,14 +5,14 @@ import About from "../components/Home/About";
 import Benefits from "../components/Home/Benefits";
 import Find from "../components/Home/Find";
 import Stores from "../components/Home/Stores";
-export default function Home() {
+export default function Home(props) {
   return (
     <main>
       <>
         <Head>
           <title>BioOil - Почетна</title>
         </Head>
-        <Landing />
+        <Landing {...props} />
         <About />
         <Benefits />
         <Find />
@@ -20,4 +20,12 @@ export default function Home() {
       </>
     </main>
   );
+}
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.SERVER_API}products`);
+  const products = await res.json();
+  return {
+    props: products,
+    revalidate: 1,
+  };
 }

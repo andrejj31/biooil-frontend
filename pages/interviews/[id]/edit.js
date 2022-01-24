@@ -3,7 +3,6 @@ import Aform from "../../../components/Reusable/Aform";
 import Head from "next/head";
 export default function Edit(props) {
   const { source, title, link, _id: id } = props.data;
-  console.log(id);
   const fields = [
     {
       name: "source",
@@ -24,7 +23,6 @@ export default function Edit(props) {
     title,
     link,
   };
-  console.log(source);
   return (
     <>
       <Head>
@@ -64,9 +62,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { id } = params;
   const res = await fetch(`${process.env.SERVER_API}interviews/${id}`);
-  console.log(res);
   const interview = await res.json();
-  console.log(interview);
   return {
     props: interview.data,
     revalidate: 1,

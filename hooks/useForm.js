@@ -11,7 +11,6 @@ export default function useForm(initialState, onSubmit) {
       });
     } else {
       if (e.target.closest("[contenteditable]")) {
-        console.log(e.target.innerHTML);
         if (e.target.innerText.trim().length === 0) {
           e.target.classList.add("content-invalid");
         } else {

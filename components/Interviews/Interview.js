@@ -1,7 +1,6 @@
 import React from "react";
 import AdminOptions from "../Reusable/AdminOptions";
 export default function Interview({ source, title, link, _id: id }) {
-  console.log(id);
   const adminButtons = [
     {
       title: "Измени го интервјуто",
@@ -15,6 +14,7 @@ export default function Interview({ source, title, link, _id: id }) {
       req: {
         data: { delete: "true" },
         method: "DELETE",
+        options: { credentials: "include" },
       },
     },
   ];

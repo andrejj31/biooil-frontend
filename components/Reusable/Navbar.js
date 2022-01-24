@@ -3,15 +3,35 @@ import Link from "next/link";
 import ProductsData from "../../data/ProductsData";
 import { useCartContext } from "../../context/cartContext";
 import { useAuthContext } from "../../context/authContext";
+import useFetch from "../../hooks/useFetch";
+
 export default function Navbar() {
   const [mobNav, setMobNav] = useState(false);
   const toggleNav = () => {
     setMobNav(!mobNav);
   };
 
+  const [body, setBody] = useState("");
+
   const { getTotalItemsLength } = useCartContext();
   const { user, initializing } = useAuthContext();
   const itemsLength = getTotalItemsLength();
+  const { data, error } = useFetch("logout", "POST", body, {
+    credentials: "include",
+  });
+
+  const handleLogout = () => {
+    console.log("ee");
+    setBody({ logout: "true" });
+  };
+
+  useEffect(() => {
+    if (data && data.status === "success") {
+      setTimeout(() => {
+        location.replace("/");
+      }, 1000);
+    }
+  }, [data, error]);
 
   return (
     <header className="nav">
@@ -48,6 +68,17 @@ export default function Navbar() {
           {!initializing && user && (
             <li onClick={toggleNav} className="nav__li">
               <Link href="/admin">АДМИН</Link>
+            </li>
+          )}
+          {!initializing && user && (
+            <li
+              onClick={(e) => {
+                handleLogout();
+                toggleNav(e);
+              }}
+              className="nav__li"
+            >
+              <Link href="/">ОДЈАВИ СЕ</Link>
             </li>
           )}
         </ul>

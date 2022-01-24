@@ -4,8 +4,6 @@ export default function Popup(props) {
   const { isOpen, title, msg, type } = props.popup;
   const [show, setShow] = useState(isOpen);
   useEffect(() => {
-    console.log(isOpen, title);
-    console.log(type);
     setShow(isOpen);
   }, [isOpen]);
 
@@ -13,7 +11,6 @@ export default function Popup(props) {
     e.preventDefault();
     setShow(false);
     props.setPopup({ ...props.popup, isOpen: false });
-    console.log(type);
   };
   return (
     <div

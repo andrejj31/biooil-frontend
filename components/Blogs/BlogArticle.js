@@ -2,10 +2,30 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import myLoader from "../../utils/loader";
+import AdminOptions from "../Reusable/AdminOptions";
 
 export default function BlogArticle({ author, title, slug, position, image }) {
   const url = `/Blogs/${image}.jpg`;
   const loaderUrl = myLoader(url);
+
+  const adminButtons = [
+    {
+      title: "Измени го блогот",
+      type: "edit",
+      location: `/nutritional-space/${slug}/edit`,
+    },
+    {
+      title: "Избриши го блогот",
+      type: "delete",
+      location: `blogs/${slug}`,
+      req: {
+        data: { delete: "true" },
+        method: "DELETE",
+        options: { credentials: "include" },
+      },
+    },
+  ];
+
   return (
     <article className="article">
       <Image
@@ -16,7 +36,6 @@ export default function BlogArticle({ author, title, slug, position, image }) {
         height="260"
         priority={true}
       ></Image>
-      {/* <img className="article__img" src="/Home/About/about_3.jpg" alt="" /> */}
       <div className="article__content">
         <div className="article__details">
           <span>АВТОР: {author}</span>
@@ -24,6 +43,7 @@ export default function BlogArticle({ author, title, slug, position, image }) {
           <Link href={`/nutritional-space/${slug}`}>
             <a className="basic-cta cta product__cta">Види го целиот прилог</a>
           </Link>
+          <AdminOptions btns={adminButtons}></AdminOptions>
         </div>
       </div>
     </article>

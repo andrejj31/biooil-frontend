@@ -15,7 +15,6 @@ export default function AformInput({
   maxLength = 5000,
   textEditor = false,
 }) {
-  console.log(req);
   const [val, setVal] = useState("");
   const handlePhotoChange = (e) => {
     setFormData({
