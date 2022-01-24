@@ -45,6 +45,7 @@ export default function Edit(props) {
           options: { credentials: "include" },
         }}
         file={true}
+        cta={"Измени го вработениот"}
       ></Aform>
     </>
   );
