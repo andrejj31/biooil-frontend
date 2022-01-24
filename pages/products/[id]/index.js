@@ -12,7 +12,8 @@ export default function DynamicProduct(props) {
     pridobivki,
     _id: id,
     price,
-  } = props.data;
+  } = props.data || {};
+
   const { addItem, isInCart } = useCartContext();
   const loaderUrl = myLoader(`/Products/${image}.png`);
   return (
@@ -87,7 +88,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

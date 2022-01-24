@@ -2,7 +2,7 @@ import React from "react";
 import BlogPost from "../../../components/Blogs/BlogPost";
 
 export default function Blog(props) {
-  const { author, title, slug, position, image, content } = props.data;
+  const { author, title, slug, position, image, content } = props.data || {};
   return (
     <section className="blog">
       <div className="center-content">
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
