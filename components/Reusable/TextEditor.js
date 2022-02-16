@@ -20,6 +20,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function TextEditor({ value, handleInputChange, name }) {
   const contentRef = useRef(null);
 
+  useEffect(() => {
+    console.log("ee");
+    if (!value) return;
+    contentRef.current.innerHTML = value;
+  }, []);
+
   const handleClick = (e) => {
     const command = e.target.closest("button").dataset["element"];
     if (command === "heading") {

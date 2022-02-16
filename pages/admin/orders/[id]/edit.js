@@ -46,11 +46,17 @@ export default function Edit(props) {
   const orderFields = [
     { name: "fullPrice", label: "Цена на нарачката" },
     { name: "quantity", label: "Вкупно продукти" },
+    {
+      name: "status",
+      label: "Статус на нарачката",
+      dropdown: { options: ["transit", "done"] },
+    },
   ];
 
   const orderInitialValues = {
     fullPrice,
     quantity,
+    status,
   };
   return (
     <>

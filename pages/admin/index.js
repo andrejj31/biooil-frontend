@@ -31,6 +31,13 @@ export default function Admin(props) {
         { title: "Измени ги блоговите", href: "/nutritional-space" },
       ],
     },
+    {
+      heading: "Премиум Продукти",
+      options: [
+        { title: "Додај продукт", href: "/admin/create/premium-products" },
+        { title: "Измени ги продуктите", href: "/premium-products" },
+      ],
+    },
   ];
 
   return (

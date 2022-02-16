@@ -17,55 +17,24 @@ export default function Order(props) {
 
   const date = new Date(createdAt).toLocaleString();
 
-  let adminButtons;
+  const adminButtons = [
+    {
+      title: "Измени ја нарачката",
+      type: "edit",
+      location: `/admin/orders/${id}/edit`,
+    },
+    {
+      title: "Избриши ја нарачката",
+      type: "delete",
+      location: `orders/${id}`,
+      req: {
+        method: "DELETE",
+        data: { delete: true },
+        options: { credentials: "include" },
+      },
+    },
+  ];
 
-  if (status === "done") {
-    adminButtons = [
-      {
-        title: "Измени ја нарачката",
-        type: "edit",
-        location: `/admin/orders/${id}/edit`,
-      },
-      {
-        title: "Избриши ја нарачката",
-        type: "delete",
-        location: `orders/${id}`,
-        req: {
-          method: "DELETE",
-          data: { delete: true },
-          options: { credentials: "include" },
-        },
-      },
-    ];
-  } else {
-    adminButtons = [
-      {
-        title: "Означи како завршена",
-        type: "modify",
-        location: `orders/${id}`,
-        req: {
-          method: "PATCH",
-          data: { status: "done" },
-          options: { credentials: "include" },
-        },
-      },
-      {
-        title: "Измени ја нарачката",
-        type: "edit",
-        location: `/admin/orders/${id}/edit`,
-      },
-      {
-        title: "Избриши ја нарачката",
-        type: "delete",
-        location: `orders/${id}`,
-        req: {
-          method: "DELETE",
-          data: { delete: true },
-          options: { credentials: "include" },
-        },
-      },
-    ];
-  }
   return (
     <div className="order">
       <div className="order__base">

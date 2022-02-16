@@ -23,7 +23,7 @@ export default function Interview({ source, title, link, _id: id }) {
     <article className="interviews__interview ">
       <h3>{source}</h3>
       <p>{title}</p>
-      <a className="basic-cta" href={link}>
+      <a className="btn btn-round btn-green" href={link}>
         погледни интервју
       </a>
       <AdminOptions btns={adminButtons}></AdminOptions>

@@ -3,56 +3,49 @@ import Aform from "../../../components/Reusable/Aform";
 import Head from "next/head";
 
 export default function Edit(props) {
-  const { price, title, slug, quan, image, pridobivki } = props.data;
+  const { title, manufacturer, link, image, price } = props.data;
   const fields = [
     {
       name: "title",
-      label: "Наслов",
+      label: "Име на продуктот",
     },
     {
-      name: "slug",
-      label: "Slug",
-      placeholder: "naslov-naslov",
+      name: "manufacturer",
+      label: "Производител",
+    },
+    {
+      name: "link",
+      label: "Линк до производителот",
     },
     {
       name: "price",
-      label: "Цена",
-    },
-    {
-      name: "quan",
-      label: "Количина на продуктот",
+      label: "Цена на продуктот во денари",
     },
     {
       name: "image",
-      label: "Фотографија од продуктот",
+      label: "Слика од продуктот",
       type: "file",
-    },
-    {
-      name: "pridobivki",
-      label: "Содржина",
-      textEditor: true,
     },
   ];
 
   const initialValues = {
     title,
+    manufacturer,
+    link,
     price,
-    quan,
     image,
-    pridobivki,
-    slug,
   };
   return (
     <>
       <Head>
-        <title>Измени го продуктот</title>
+        <title>BioOil - Измени ги податоците за продуктот</title>
       </Head>
       <Aform
         fields={fields}
-        title={"Измени го продуктот"}
+        title={"Измени ги податоците за продуктот"}
         initialValues={initialValues}
         req={{
-          url: `products/${slug}`,
+          url: `premium-products/${props.data._id}`,
           method: "PATCH",
           options: { credentials: "include" },
         }}
@@ -64,12 +57,12 @@ export default function Edit(props) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.SERVER_API}products`);
+  const res = await fetch(`${process.env.SERVER_API}premium-products`);
   const dataReady = await res.json();
 
   const paths = dataReady.data.map((product) => ({
     params: {
-      id: product.slug,
+      id: product._id,
     },
   }));
 
@@ -81,7 +74,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { id } = params;
-  const res = await fetch(`${process.env.SERVER_API}products/${id}`);
+  const res = await fetch(`${process.env.SERVER_API}premium-products/${id}`);
   const product = await res.json();
   return {
     props: product.data,

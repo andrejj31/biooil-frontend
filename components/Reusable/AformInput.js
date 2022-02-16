@@ -1,3 +1,4 @@
+import { text } from "@fortawesome/fontawesome-svg-core";
 import React, { useState } from "react";
 import TextEditor from "./TextEditor";
 
@@ -14,6 +15,7 @@ export default function AformInput({
   textArea = false,
   maxLength = 5000,
   textEditor = false,
+  dropdown = false,
 }) {
   const [val, setVal] = useState("");
   const handlePhotoChange = (e) => {
@@ -25,13 +27,14 @@ export default function AformInput({
     setVal(e.target.value);
   };
 
+  console.log(type);
   const handleChange = type !== "file" ? handleInputChange : handlePhotoChange;
   return (
     <div className="form-group aform__group">
       <label className="form-label aform__label" htmlFor={name}>
         {label}
       </label>
-      {!textArea && !textEditor && (
+      {!textArea && !textEditor && !dropdown && (
         <input
           // {req.method === 'PATCH' ? 'required': ''}
           placeholder={placeholder}
@@ -42,7 +45,7 @@ export default function AformInput({
           onChange={handleChange}
         />
       )}
-      {textArea && !textEditor && (
+      {textArea && !textEditor && !dropdown && (
         <textarea
           required
           className="form-textarea aform__textarea"
@@ -53,7 +56,7 @@ export default function AformInput({
           onChange={handleInputChange}
         ></textarea>
       )}
-      {textEditor && !textArea && (
+      {textEditor && !textArea && !dropdown && (
         <TextEditor
           required
           name={name}
@@ -61,6 +64,26 @@ export default function AformInput({
           placeholder={placeholder}
           handleInputChange={handleInputChange}
         ></TextEditor>
+      )}
+      {dropdown && !textArea && !textEditor && (
+        <select
+          name={name}
+          className="form-dropdown aform__dropdown"
+          onChange={handleInputChange}
+        >
+          {dropdown.options.map((option, i) => {
+            return (
+              <option
+                className="form-option"
+                selected={option === value ? "selected" : ""}
+                key={i}
+                value={option}
+              >
+                {option}
+              </option>
+            );
+          })}
+        </select>
       )}
     </div>
   );

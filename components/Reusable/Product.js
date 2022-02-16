@@ -11,6 +11,11 @@ export default function Product({ landing, title, image, slug, translate }) {
     <article
       className={`product ${boolValue == true ? "product__translate" : ""}`}
     >
+      <div className="product__flags">
+        <img src="/Flags/mk.png" alt="Macedonia" />
+        <img src="/Flags/al.png" alt="Albania" />
+        <img src="/Flags/swiss.png" alt="Switzeland" />
+      </div>
       {/* <img className="product__img" src={`/Products/${imgUrl}`} alt="" /> */}
       {/* <img
         className="product__img"
@@ -41,7 +46,7 @@ export default function Product({ landing, title, image, slug, translate }) {
               })}
           </div>
           <Link href={`products/${slug}`}>
-            <a href={`products/${slug}`} className="product__cta basic-cta">
+            <a href={`products/${slug}`} className="product__cta btn btn-green">
               прочитај повеќе
             </a>
           </Link>

@@ -142,7 +142,7 @@ export default function Cart() {
 
           <button
             onClick={() => router.back()}
-            className="basic-cta basic-cta-round"
+            className="btn btn-round btn-round-wide btn-green"
           >
             Врати се назад
           </button>
@@ -187,7 +187,7 @@ export default function Cart() {
                     ></FormInput>
                   );
                 })}
-                <button type="submit" className="basic-cta basic-cta-round">
+                <button type="submit" className="btn btn-round btn-green">
                   Направи нарачка
                 </button>
               </form>

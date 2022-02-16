@@ -1,9 +1,12 @@
 import Head from "next/head";
+import { useState } from "react";
 import ProductsData from "../../../data/ProductsData";
+import Popup from "../../../components/Reusable/Popup";
 // import Image from "next/image";
 import myLoader from "../../../utils/loader";
 import { useCartContext } from "../../../context/cartContext";
 export default function DynamicProduct(props) {
+  const [popup, setPopup] = useState({ isOpen: false });
   const {
     title,
     quan,
@@ -35,13 +38,21 @@ export default function DynamicProduct(props) {
               <span>{quan}</span>
               <p>{description}</p>
               <div className="item__btns">
-                <a href="#more" className="basic-cta">
+                <a href="#more" className="btn btn-round btn-green">
                   Прочитај повеќе
                 </a>
                 {!isInCart(id) && (
                   <a
-                    className="basic-cta"
-                    onClick={() => addItem({ id, title, quan, image, price })}
+                    className="btn btn-round btn-green"
+                    onClick={(e) => {
+                      addItem({ id, title, quan, image, price });
+                      setPopup({
+                        title: `Продуктот: ${title} е успешно додаден во корпата!`,
+                        msg: "Во корпата можете да го одберете квантитетот на продукти од овој тип.",
+                        type: "success",
+                        isOpen: true,
+                      });
+                    }}
                   >
                     Додај во кошничка
                   </a>
@@ -72,6 +83,7 @@ export default function DynamicProduct(props) {
           </div>
         </div> */}
       </section>
+      <Popup setPopup={setPopup} popup={popup}></Popup>
     </>
   );
 }

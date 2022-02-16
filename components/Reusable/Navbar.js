@@ -65,12 +65,15 @@ export default function Navbar() {
           <li onClick={toggleNav} className="nav__li">
             <Link href="/nutritional-space">НУТРИТИВНО КОШЕ</Link>
           </li>
+          <li onClick={toggleNav} className="nav__li">
+            <Link href="/premium-products">ПРЕМИУМ ПРОДУКТИ</Link>
+          </li>
           {!initializing && user && (
             <li onClick={toggleNav} className="nav__li">
               <Link href="/admin">АДМИН</Link>
             </li>
           )}
-          {!initializing && user && (
+          {/* {!initializing && user && (
             <li
               onClick={(e) => {
                 handleLogout();
@@ -80,7 +83,7 @@ export default function Navbar() {
             >
               <Link href="/">ОДЈАВИ СЕ</Link>
             </li>
-          )}
+          )} */}
         </ul>
         <div className="nav__additional">
           <Link href="/cart">

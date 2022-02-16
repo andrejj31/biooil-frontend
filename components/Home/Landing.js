@@ -2,7 +2,6 @@ import React from "react";
 import Product from "../Reusable/Product";
 import ProductsData from "./../../data/ProductsData";
 export default function Landing(props) {
-  console.log(props);
   const products = props.data;
   return (
     <section className="landing">
@@ -17,7 +16,10 @@ export default function Landing(props) {
             материи што ги содржи носи повеќекратни придобивки за целото
             семејство.
           </h2>
-          <a className="landing__cta round-cta" href="#">
+          <a
+            className="btn btn-round btn-shadow btn-white landing__cta"
+            href="#"
+          >
             Види ги сите производи
           </a>
         </div>

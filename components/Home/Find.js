@@ -75,11 +75,27 @@ export default function Find() {
             <article className="find__logos">
               <h3>Социјални мрежи</h3>
               <div className="find__icons">
-                <a href="https://www.facebook.com/biooilMK/">
+                <a
+                  href="https://www.facebook.com/biooilMK/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img src="/Icons/facebook.png" alt="" />
                 </a>
-                <img src="/Icons/instagram.png" alt="" />
-                <img src="/Icons/messenger.png" alt="" />
+                <a
+                  href="https://www.instagram.com/biooilmk/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/Icons/instagram.png" alt="" />
+                </a>
+                <a
+                  href="https://www.facebook.com/biooilMK/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/Icons/messenger.png" alt="" />
+                </a>
               </div>
             </article>
           </div>

@@ -41,7 +41,7 @@ export default function BlogArticle({ author, title, slug, position, image }) {
           <span>АВТОР: {author}</span>
           <h3>{title}</h3>
           <Link href={`/nutritional-space/${slug}`}>
-            <a className="basic-cta cta product__cta">Види го целиот прилог</a>
+            <a className="btn btn-green product__cta">Види го целиот прилог</a>
           </Link>
           <AdminOptions btns={adminButtons}></AdminOptions>
         </div>

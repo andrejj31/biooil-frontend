@@ -11,7 +11,9 @@ export default function AboutArticle(data) {
           <p>{desc}</p>
           {cta && (
             <Link href={cta[1]}>
-              <a className="round-cta about__cta">{cta[0]}</a>
+              <a className="btn btn-round btn-shadow btn-white about__cta">
+                {cta[0]}
+              </a>
             </Link>
           )}
         </div>

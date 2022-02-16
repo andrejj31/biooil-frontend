@@ -92,7 +92,7 @@ export default function Aform(props) {
             ></AformInput>
           );
         })}
-        <button className="basic-cta basic-cta-round" type="submit">
+        <button className="btn btn-round btn-green" type="submit">
           {cta}
         </button>
       </form>
