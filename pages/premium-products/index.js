@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 // import SwiperCore, { Autoplay } from "swiper";
 // SwiperCore.use([Autoplay]);
 // Import Swiper styles
@@ -56,7 +56,7 @@ export default function PremiumProducts(props) {
         </div>
         <div className="premium__brands">
           <div className="premium__brands-content center-content">
-            <Swiper
+            {/* <Swiper
               spaceBetween={10}
               slidesPerView={5}
               loop={true}
@@ -121,7 +121,7 @@ export default function PremiumProducts(props) {
               <SwiperSlide>
                 <img src="/Premium/Brands/biomelan.png" alt="" />
               </SwiperSlide>
-            </Swiper>
+            </Swiper> */}
           </div>
         </div>
         <div className="premium__products">
