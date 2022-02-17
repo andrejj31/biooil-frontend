@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
-import { Swiper, SwiperSlide } from "swiper";
-// import SwiperCore, { Autoplay } from "swiper";
-// SwiperCore.use([Autoplay]);
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper";
+SwiperCore.use([Autoplay]);
 // Import Swiper styles
-// import "swiper/css";
+import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
   console.log(data);
@@ -56,7 +56,7 @@ export default function PremiumProducts(props) {
         </div>
         <div className="premium__brands">
           <div className="premium__brands-content center-content">
-            {/* <Swiper
+            <Swiper
               spaceBetween={10}
               slidesPerView={5}
               loop={true}
@@ -84,14 +84,14 @@ export default function PremiumProducts(props) {
                   spaceBetween: 0,
                 },
               }}
-            > */}
-            {/* <SwiperSlide> */}
-            <img src="/Premium/Brands/ime.png" alt="" />
-            {/* </SwiperSlide> */}
-            {/* <SwiperSlide> */}
-            <img src="/Premium/Brands/biooil.png" alt="" />
-            {/* </SwiperSlide> */}
-            {/* <SwiperSlide>
+            >
+              <SwiperSlide>
+                <img src="/Premium/Brands/ime.png" alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="/Premium/Brands/biooil.png" alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
                 <img src="/Premium/Brands/tuf.png" alt="" />
               </SwiperSlide>
               <SwiperSlide>
@@ -100,27 +100,22 @@ export default function PremiumProducts(props) {
               <SwiperSlide>
                 <img src="/Premium/Brands/jomi.png" alt="" />
               </SwiperSlide>
-
               <SwiperSlide>
                 <img src="/Premium/Brands/su-mi.png" alt="" />
               </SwiperSlide>
-
               <SwiperSlide>
                 <img src="/Premium/Brands/roza-kanina.png" alt="" />
               </SwiperSlide>
-
               <SwiperSlide>
                 <img src="/Premium/Brands/zaum.png" alt="" />
               </SwiperSlide>
-
               <SwiperSlide>
                 <img src="/Premium/Brands/saridis.png" alt="" />
               </SwiperSlide>
-
               <SwiperSlide>
                 <img src="/Premium/Brands/biomelan.png" alt="" />
-              </SwiperSlide> */}
-            {/* </Swiper> */}
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
         <div className="premium__products">
