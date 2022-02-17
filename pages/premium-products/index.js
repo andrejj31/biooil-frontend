@@ -2,13 +2,11 @@ import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
-SwiperCore.use([Autoplay]);
-// Import Swiper styles
 import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
   console.log(data);
+
   return (
     <>
       <Head>
@@ -56,7 +54,7 @@ export default function PremiumProducts(props) {
         </div>
         <div className="premium__brands">
           <div className="premium__brands-content center-content">
-            <Swiper
+            {/* <Swiper
               spaceBetween={10}
               slidesPerView={5}
               loop={true}
@@ -115,7 +113,18 @@ export default function PremiumProducts(props) {
               <SwiperSlide>
                 <img src="/Premium/Brands/biomelan.png" alt="" />
               </SwiperSlide>
-            </Swiper>
+            </Swiper> */}
+
+            <img src="/Premium/Brands/ime.png" alt="" />
+            <img src="/Premium/Brands/biooil.png" alt="" />
+            <img src="/Premium/Brands/tuf.png" alt="" />
+            <img src="/Premium/Brands/fedor.png" alt="" />
+            <img src="/Premium/Brands/jomi.png" alt="" />
+            <img src="/Premium/Brands/su-mi.png" alt="" />
+            <img src="/Premium/Brands/roza-kanina.png" alt="" />
+            <img src="/Premium/Brands/zaum.png" alt="" />
+            <img src="/Premium/Brands/saridis.png" alt="" />
+            <img src="/Premium/Brands/biomelan.png" alt="" />
           </div>
         </div>
         <div className="premium__products">
