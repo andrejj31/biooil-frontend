@@ -140,6 +140,7 @@ export default function PremiumProducts(props) {
 export async function getStaticProps() {
   const resp = await fetch(`${process.env.SERVER_API}premium-products`);
   const data = await resp.json();
+
   return {
     props: data,
     revalidate: 1,
