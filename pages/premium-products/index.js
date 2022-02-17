@@ -127,7 +127,7 @@ export default function PremiumProducts(props) {
           <div className="center-content">
             <div className="premium__products-content">
               {data.map((product, i) => {
-                return <Product key={product} {...product} />;
+                return <Product key={`${product}-${i}`} {...product} />;
               })}
             </div>
           </div>
