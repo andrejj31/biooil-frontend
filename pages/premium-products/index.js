@@ -3,7 +3,7 @@ import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import SwiperCore, { Autoplay } from "swiper";
-SwiperCore.use([Autoplay]);
+// SwiperCore.use([Autoplay]);
 // Import Swiper styles
 // import "swiper/css";
 export default function PremiumProducts(props) {
