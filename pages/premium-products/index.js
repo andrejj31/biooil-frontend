@@ -3,9 +3,9 @@ import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
-// SwiperCore.use([Autoplay]);
+SwiperCore.use([Autoplay]);
 // Import Swiper styles
-import "swiper/css";
+// import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
   console.log(data);
@@ -141,7 +141,6 @@ export default function PremiumProducts(props) {
 export async function getStaticProps() {
   const resp = await fetch(`${process.env.SERVER_API}premium-products`);
   const data = await resp.json();
-  console.log(data);
 
   return {
     props: data,
