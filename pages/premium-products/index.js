@@ -8,6 +8,7 @@ SwiperCore.use([Autoplay]);
 import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
+  console.log(data);
   return (
     <>
       <Head>
