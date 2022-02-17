@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
-import { Swiper } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 // import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
