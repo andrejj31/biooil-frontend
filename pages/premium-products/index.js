@@ -1,11 +1,16 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import Swiper from "react-id-swiper";
 
 export default function PremiumProducts(props) {
   const { data } = props;
   console.log(data);
+
+  const params = {
+    slidesPerView: 5,
+    spaceBetween: 10,
+  };
 
   return (
     <>
@@ -114,16 +119,18 @@ export default function PremiumProducts(props) {
                 <img src="/Premium/Brands/biomelan.png" alt="" />
               </SwiperSlide>
             </Swiper> */}
-            <img src="/Premium/Brands/ime.png" alt="" />
-            <img src="/Premium/Brands/biooil.png" alt="" />
-            <img src="/Premium/Brands/tuf.png" alt="" />
-            <img src="/Premium/Brands/fedor.png" alt="" />
-            <img src="/Premium/Brands/jomi.png" alt="" />
-            <img src="/Premium/Brands/su-mi.png" alt="" />
-            <img src="/Premium/Brands/roza-kanina.png" alt="" />
-            <img src="/Premium/Brands/zaum.png" alt="" />
-            <img src="/Premium/Brands/saridis.png" alt="" />
-            <img src="/Premium/Brands/biomelan.png" alt="" />
+            {/* <Swiper {...params}>
+              <img src="/Premium/Brands/ime.png" alt="" />
+              <img src="/Premium/Brands/biooil.png" alt="" />
+              <img src="/Premium/Brands/tuf.png" alt="" />
+              <img src="/Premium/Brands/fedor.png" alt="" />
+              <img src="/Premium/Brands/jomi.png" alt="" />
+              <img src="/Premium/Brands/su-mi.png" alt="" />
+              <img src="/Premium/Brands/roza-kanina.png" alt="" />
+              <img src="/Premium/Brands/zaum.png" alt="" />
+              <img src="/Premium/Brands/saridis.png" alt="" />
+              <img src="/Premium/Brands/biomelan.png" alt="" />
+            </Swiper> */}
           </div>
         </div>
         <div className="premium__products">
@@ -140,11 +147,12 @@ export default function PremiumProducts(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const resp = await fetch(`${process.env.SERVER_API}premium-products`);
   const data = await resp.json();
 
   return {
     props: data,
+    revalidate: 1,
   };
 }
