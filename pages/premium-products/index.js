@@ -1,8 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
-import { SwiperSlide } from "swiper/react";
-// import "swiper/css";
 export default function PremiumProducts(props) {
   const { data } = props;
   console.log(data);
@@ -114,7 +112,6 @@ export default function PremiumProducts(props) {
                 <img src="/Premium/Brands/biomelan.png" alt="" />
               </SwiperSlide>
             </Swiper> */}
-
             <img src="/Premium/Brands/ime.png" alt="" />
             <img src="/Premium/Brands/biooil.png" alt="" />
             <img src="/Premium/Brands/tuf.png" alt="" />
@@ -141,12 +138,11 @@ export default function PremiumProducts(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const resp = await fetch(`${process.env.SERVER_API}premium-products`);
   const data = await resp.json();
 
   return {
     props: data,
-    revalidate: 1,
   };
 }
