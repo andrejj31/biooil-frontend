@@ -36,8 +36,8 @@ export default function Stores() {
     <section className="stores">
       <h3 className="section-heading">НАШИТЕ ПРОИЗВОДИ СЕ ДОСТАПНИ И ВО:</h3>
       <div className="stores__box">
-        <div className="stores__content center-content" ref={refCallback}>
-          <div className="keen-slider">
+        <div className="stores__content center-content">
+          <div className="keen-slider" ref={refCallback}>
             {StoresData.map((store, id) => {
               const { name, nameLong, imgUrl, link } = store;
               return (

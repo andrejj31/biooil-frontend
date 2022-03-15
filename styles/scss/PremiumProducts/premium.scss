@@ -51,22 +51,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    img {
-      width: 15rem;
-      filter: grayscale(100%);
-      transition: filter 0.4s;
-      cursor: pointer;
+  &__img-container {
+    width: 15rem;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+    @media only screen and (max-width: $bp-large) {
+      width: 12rem;
+    }
+  }
+  &__img {
+    filter: grayscale(100%);
+    transition: filter 0.4s;
+    cursor: pointer;
 
-      @media only screen and (max-width: $bp-large) {
-        width: 12rem;
-      }
-      &:hover {
-        filter: none;
-      }
-      &:not(:last-child) {
-        margin-right: 2rem;
-      }
+    &:hover {
+      filter: none;
     }
   }
 
