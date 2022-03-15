@@ -105,9 +105,8 @@ export default function PremiumProducts(props) {
             <div className="keen-slider" ref={refCallback}>
               {PremiumProductsData.map((product, id) => {
                 return (
-                  <div className="premium__img-container">
+                  <div key={id} className="premium__img-container">
                     <img
-                      key={id}
                       className="keen-slider__slide premium__img"
                       src={`/Premium/Brands/${product.name}.png`}
                       alt={product.alt}
