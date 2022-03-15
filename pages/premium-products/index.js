@@ -24,6 +24,32 @@ export default function PremiumProducts(props) {
       rtl: true,
       loop: true,
       duration: 100,
+      breakpoints: {
+        "(max-width: 1400px)": {
+          slides: {
+            perView: 5,
+            spacing: 50,
+          },
+        },
+        "(max-width: 1000px)": {
+          slides: {
+            perView: 4,
+            spacing: 70,
+          },
+        },
+        "(max-width: 800px)": {
+          slides: {
+            perView: 3,
+            spacing: 70,
+          },
+        },
+        "(max-width: 500px)": {
+          slides: {
+            perView: 2,
+            spacing: 70,
+          },
+        },
+      },
       slideChanged() {
         console.log("slide changed");
       },

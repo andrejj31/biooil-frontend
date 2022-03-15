@@ -3,7 +3,7 @@ import StoresData from "../../data/StoresData";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
-const animation = { duration: 15000, easing: (t) => t };
+const animation = { duration: 30000, easing: (t) => t };
 export default function Stores() {
   const [refCallback, slider, sliderNode] = useKeenSlider(
     {
@@ -13,7 +13,26 @@ export default function Stores() {
       },
       rtl: true,
       loop: true,
-      duration: 100,
+      breakpoints: {
+        "(max-width: 1400px)": {
+          slides: {
+            perView: 5,
+            spacing: 50,
+          },
+        },
+        "(max-width: 800px)": {
+          slides: {
+            perView: 4,
+            spacing: 70,
+          },
+        },
+        "(max-width: 500px)": {
+          slides: {
+            perView: 2,
+            spacing: 70,
+          },
+        },
+      },
       slideChanged() {
         console.log("slide changed");
       },
