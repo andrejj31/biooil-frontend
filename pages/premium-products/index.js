@@ -3,7 +3,7 @@ import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
 import Paggination from "../../components/Reusable/Paggination";
 // import Swiper from "react-id-swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import Router, { useRouter } from "next/router";
 
 // Import Swiper styles
@@ -83,7 +83,7 @@ export default function PremiumProducts(props) {
         </div>
         <div className="premium__brands">
           <div className="premium__brands-content center-content">
-            <Swiper
+            {/* <Swiper
               spaceBetween={10}
               slidesPerView={5}
               loop={true}
@@ -111,8 +111,8 @@ export default function PremiumProducts(props) {
                   spaceBetween: 0,
                 },
               }}
-            >
-              <SwiperSlide>
+            > */}
+            {/* <SwiperSlide>
                 <img
                   onClick={handleBrandClick}
                   src="/Premium/Brands/ime.png"
@@ -192,9 +192,9 @@ export default function PremiumProducts(props) {
                   onClick={handleBrandClick}
                 />
               </SwiperSlide>
-            </Swiper>
+            </Swiper> */}
 
-            {/* <img src="/Premium/Brands/ime.png" alt="" />
+            <img src="/Premium/Brands/ime.png" alt="" />
             <img src="/Premium/Brands/biooil.png" alt="" />
             <img src="/Premium/Brands/tuf.png" alt="" />
             <img src="/Premium/Brands/fedor.png" alt="" />
@@ -203,7 +203,7 @@ export default function PremiumProducts(props) {
             <img src="/Premium/Brands/roza-kanina.png" alt="" />
             <img src="/Premium/Brands/zaum.png" alt="" />
             <img src="/Premium/Brands/saridis.png" alt="" />
-            <img src="/Premium/Brands/biomelan.png" alt="" /> */}
+            <img src="/Premium/Brands/biomelan.png" alt="" />
           </div>
         </div>
         <div className="premium__products">
