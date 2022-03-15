@@ -37,9 +37,7 @@ export default function PremiumProducts(props) {
         s.moveToIdx(s.track.details.abs + 5, true, animation);
       },
     },
-    [
-      // add plugins here
-    ]
+    []
   );
 
   const handleBrandClick = (e) => {
@@ -120,16 +118,6 @@ export default function PremiumProducts(props) {
                 );
               })}
             </div>
-            {/* <img src="/Premium/Brands/ime.png" alt="" />
-            <img src="/Premium/Brands/biooil.png" alt="" />
-            <img src="/Premium/Brands/tuf.png" alt="" />
-            <img src="/Premium/Brands/fedor.png" alt="" />
-            <img src="/Premium/Brands/jomi.png" alt="" />
-            <img src="/Premium/Brands/su-mi.png" alt="" />
-            <img src="/Premium/Brands/roza-kanina.png" alt="" />
-            <img src="/Premium/Brands/zaum.png" alt="" />
-            <img src="/Premium/Brands/saridis.png" alt="" />
-            <img src="/Premium/Brands/biomelan.png" alt="" /> */}
           </div>
         </div>
         <div className="premium__products">
