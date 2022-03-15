@@ -4,11 +4,21 @@
       rgba(5, 100, 14, 0.2) 0%,
       rgba(2, 92, 11, 0.16) 100%
     ),
-    url("/Home/unsplash_kW1P8R-UoWI.png");
+    url("/Home/naslovna.jpg");
+  // background: linear-gradient(
+  //     103.81deg,
+  //     rgb(5 100 79 / 62%) 0%,
+  //     rgb(2 92 11 / 75%) 100%
+  //   ),
+  //   url(/Home/naslovna.jpg);
   background-color: #00d26d;
   background-repeat: no-repeat;
   background-size: cover;
+  max-height: 70rem;
 
+  @media only screen and (max-width: $bp-largest) {
+    max-height: unset;
+  }
   &__content {
     color: $color-white;
     display: flex;
@@ -49,16 +59,17 @@
   }
   &__products {
     display: grid;
-    align-items: center;
+    align-items: stretch;
     justify-items: center;
     justify-content: end;
     grid-gap: 2rem;
     grid-template-columns: repeat(2, minmax(20.6rem, max-content));
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, fit-content);
     @media only screen and (max-width: $bp-huge) {
       grid-template-columns: repeat(auto-fit, minmax(20.6rem, auto));
       grid-template-rows: auto;
       justify-content: stretch;
+      margin-top: 2rem;
     }
 
     @media only screen and (max-width: $bp-largest) {

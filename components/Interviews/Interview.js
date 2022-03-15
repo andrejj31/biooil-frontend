@@ -1,11 +1,21 @@
 import React from "react";
 import AdminOptions from "../Reusable/AdminOptions";
-export default function Interview({ source, title, link, _id: id }) {
+import myLoader from "../../utils/loader";
+import Link from "next/link";
+
+export default function Interview({
+  source,
+  title,
+  link,
+  _id: id,
+  slug,
+  image,
+}) {
   const adminButtons = [
     {
       title: "Измени го интервјуто",
       type: "edit",
-      location: `/interviews/${id}/edit`,
+      location: `/interviews/${slug}/edit`,
     },
     {
       title: "Избриши го интервјуто",
@@ -19,13 +29,15 @@ export default function Interview({ source, title, link, _id: id }) {
     },
   ];
 
+  const loaderUrl = myLoader(`/Interviews/${image}.jpg`);
   return (
     <article className="interviews__interview ">
+      <img src={loaderUrl} alt="title" />
       <h3>{source}</h3>
       <p>{title}</p>
-      <a className="btn btn-round btn-green" href={link}>
-        погледни интервју
-      </a>
+      <Link href={`/interviews/${slug}`}>
+        <a className="btn btn-round btn-green">погледни интервју</a>
+      </Link>
       <AdminOptions btns={adminButtons}></AdminOptions>
     </article>
   );

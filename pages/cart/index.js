@@ -65,11 +65,19 @@ export default function Cart() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCartItems = cartItems.items.map((item) => {
-      return {
-        product: item.id,
-        quantity: item.quantity,
-        fullPrice: item.fullPrice,
-      };
+      if (item.premium) {
+        return {
+          premiumProduct: item.id,
+          quantity: item.quantity,
+          fullPrice: item.fullPrice,
+        };
+      } else {
+        return {
+          product: item.id,
+          quantity: item.quantity,
+          fullPrice: item.fullPrice,
+        };
+      }
     });
     const postObject = {
       fullPrice: cartItems.fullPrice,

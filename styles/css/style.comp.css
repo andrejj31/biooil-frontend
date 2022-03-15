@@ -230,6 +230,31 @@ button {
   .swiper-container {
     width: 400px; } }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 5rem;
+  list-style: none;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  padding: 0.5rem 1rem; }
+  .pagination__active {
+    background-color: #2ed47b;
+    color: #fff !important; }
+  .pagination li {
+    cursor: pointer;
+    color: #3e3939;
+    transition: all 0.5s; }
+    .pagination li a {
+      font-weight: 500;
+      font-size: 1.5rem;
+      padding: 0 1rem; }
+    .pagination li:not(:last-child) {
+      margin-right: 0.2rem; }
+
 .nav {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
   padding: 0.5rem 0;
@@ -333,7 +358,8 @@ button {
       opacity: 0;
       transition: all 0.8s;
       overflow: hidden;
-      margin-top: 1rem; }
+      margin-top: 1rem;
+      z-index: 100; }
       @media only screen and (max-width: 62.5em) {
         .nav__tabs li ul {
           opacity: 0;
@@ -428,9 +454,9 @@ button {
   justify-content: center;
   border-radius: 1rem;
   padding: 2rem 0;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   max-width: 30rem;
-  position: relative; }
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; }
   .product__flags {
     top: 0.5rem;
     right: 0.5rem;
@@ -446,7 +472,7 @@ button {
       .product__flags img:not(:last-child) {
         margin-bottom: -0.5rem; }
   .product__img {
-    max-height: 20rem;
+    max-height: 15rem;
     padding: 1rem 0; }
   .product__about {
     padding: 0 1rem;
@@ -456,7 +482,7 @@ button {
     border: 1px solid #ededed; }
   .product__content h4 {
     color: #6a6a6a;
-    font-size: 1.8rem; }
+    font-size: 1.6rem; }
   .product__benefits {
     color: #808080;
     margin-top: 1.5rem; }
@@ -480,7 +506,10 @@ button {
     font-size: 1.2rem;
     cursor: pointer; }
   .product__translate {
-    transform: translateY(5rem); }
+    transform: translateY(2rem); }
+    @media only screen and (max-width: 87.5em) {
+      .product__translate {
+        transform: translate(0); } }
     @media only screen and (max-width: 37.5em) {
       .product__translate {
         transform: translate(0); } }
@@ -548,6 +577,8 @@ button {
   width: 100%;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; }
+  .editor iframe {
+    max-width: 80%; }
   .editor__head {
     background-color: #ecf0f1;
     padding: 0.5rem; }
@@ -583,10 +614,14 @@ button {
   border-bottom: 3px solid #ff2b3e !important; }
 
 .landing {
-  background: linear-gradient(103.81deg, rgba(5, 100, 14, 0.2) 0%, rgba(2, 92, 11, 0.16) 100%), url("/Home/unsplash_kW1P8R-UoWI.png");
+  background: linear-gradient(103.81deg, rgba(5, 100, 14, 0.2) 0%, rgba(2, 92, 11, 0.16) 100%), url("/Home/naslovna.jpg");
   background-color: #00d26d;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  max-height: 70rem; }
+  @media only screen and (max-width: 75em) {
+    .landing {
+      max-height: unset; } }
   .landing__content {
     color: #fff;
     display: flex;
@@ -617,17 +652,18 @@ button {
     font-size: 1.5rem; }
   .landing__products {
     display: grid;
-    align-items: center;
+    align-items: stretch;
     justify-items: center;
     justify-content: end;
     grid-gap: 2rem;
     grid-template-columns: repeat(2, minmax(20.6rem, max-content));
-    grid-template-rows: repeat(2, 1fr); }
+    grid-template-rows: repeat(2, fit-content); }
     @media only screen and (max-width: 87.5em) {
       .landing__products {
         grid-template-columns: repeat(auto-fit, minmax(20.6rem, auto));
         grid-template-rows: auto;
-        justify-content: stretch; } }
+        justify-content: stretch;
+        margin-top: 2rem; } }
     @media only screen and (max-width: 75em) {
       .landing__products {
         grid-template-columns: repeat(2, minmax(22rem, auto));
@@ -1047,16 +1083,23 @@ button {
   padding: 5rem 0; }
   .interviews__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, auto));
+    grid-template-columns: repeat(4, minmax(35rem, 1fr));
     grid-gap: 4rem; }
   .interviews__interview {
     background-color: #fdfdfd;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1.5rem;
-    padding: 3.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start; }
+    .interviews__interview img {
+      max-height: 15rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      object-position: center; }
     .interviews__interview h3 {
       font-size: 1.6rem;
       color: #00d060;
@@ -1127,7 +1170,8 @@ button {
     .cart__item h3 {
       color: #2ed47b;
       font-weight: 700;
-      font-size: 2.5rem; }
+      font-size: 2.5rem;
+      line-height: 1.4; }
     .cart__item span {
       color: #b9b9b9;
       font-size: 1.5rem; }
@@ -1139,7 +1183,9 @@ button {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
     border-radius: 2rem;
     padding: 2rem 5rem;
-    display: inline-block; }
+    display: inline-block;
+    display: flex;
+    align-items: center; }
     .cart__img img {
       width: 6rem; }
   .cart__quan {
@@ -1271,7 +1317,7 @@ button {
   font-weight: 600;
   color: white;
   cursor: pointer;
-  background-color: #00d060; }
+  background-color: #ffa325; }
 
 .options {
   display: flex;
@@ -1380,6 +1426,15 @@ button {
 .blog {
   background-color: #fdfdfd;
   margin-top: 5rem; }
+  .blog iframe {
+    width: 100rem;
+    height: 50rem;
+    margin: 0 auto;
+    display: block; }
+  .blog__facebook {
+    height: 5rem !important;
+    width: auto !important;
+    margin: 0 !important; }
   .blog__article {
     padding: 5rem 0; }
   .blog__head {
@@ -1399,7 +1454,7 @@ button {
     .blog__img img {
       border-radius: 1rem;
       width: 100%;
-      height: 50vh;
+      height: 50rem;
       object-fit: cover; }
       @media only screen and (max-width: 37.5em) {
         .blog__img img {
@@ -1516,7 +1571,7 @@ button {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     justify-content: center;
-    justify-items: center; }
+    text-transform: uppercase; }
     @media only screen and (max-width: 112.5em) {
       .premium__products-content {
         grid-template-columns: repeat(auto-fit, minmax(30rem, auto)); } }
@@ -1557,7 +1612,22 @@ button {
     color: #aeaeae;
     font-size: 1.4rem; }
   .premium-product__body {
-    padding: 0.5rem; }
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; }
+  .premium-product__cta {
+    border-radius: 1rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background-color: #00d060;
+    align-self: stretch;
+    text-align: center;
+    margin-top: 1rem;
+    text-transform: none; }
   .premium-product__bottom {
     margin-top: 1rem;
     display: flex;

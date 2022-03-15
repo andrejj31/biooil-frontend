@@ -133,6 +133,7 @@
         transition: all 0.8s;
         overflow: hidden;
         margin-top: 1rem;
+        z-index: 100;
 
         @media only screen and (max-width: $bp-large) {
           opacity: 0;

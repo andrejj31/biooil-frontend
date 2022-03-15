@@ -17,12 +17,30 @@ export default function Create() {
       label: "Линк",
       placeholder: "Линк за пристап",
     },
+    {
+      name: "slug",
+      label: "Slug",
+      placeholder: "naslov-naslov",
+    },
+    {
+      name: "content",
+      label: "Содржина",
+      textEditor: true,
+    },
+    {
+      name: "image",
+      label: "Насловна фотографија",
+      type: "file",
+    },
   ];
 
   const initialValues = {
     source: "",
     title: "",
     link: "",
+    slug: "",
+    image: "",
+    content: "",
   };
 
   return (
@@ -34,6 +52,7 @@ export default function Create() {
         fields={fields}
         title={"Креирај интервју"}
         initialValues={initialValues}
+        file={true}
         req={{
           url: "interviews",
           method: "POST",

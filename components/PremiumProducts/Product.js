@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import myLoader from "../../utils/loader";
 import AdminOptions from "../Reusable/AdminOptions";
-
+import { useCartContext } from "../../context/cartContext";
+import Popup from "../../components/Reusable/Popup";
 export default function Product({
   title,
   manufacturer,
@@ -28,6 +29,8 @@ export default function Product({
     },
   ];
 
+  const [popup, setPopup] = useState({ isOpen: false });
+  const { addItem, isInCart } = useCartContext();
   const loaderUrl = myLoader(`/Premium/${image}.png`);
   return (
     <article className="premium-product">
@@ -44,8 +47,32 @@ export default function Product({
           </a>
           <span>{price} ДЕНАРИ</span>
         </div>
+        <a
+          className="btn premium-product__cta"
+          onClick={(e) => {
+            addItem({ id, title, image, price, manufacturer, premium: true });
+            setPopup({
+              title: `Продуктот: ${title} е успешно додаден во корпата!`,
+              msg: "Во корпата можете да го одберете квантитетот на продукти од овој тип.",
+              type: "success",
+              isOpen: true,
+            });
+          }}
+        >
+          Додај во кошничка
+        </a>
         <AdminOptions btns={adminButtons}></AdminOptions>
       </div>
     </article>
   );
 }
+
+// onClick={(e) => {
+//   addItem({ id, title, quan, image, price });
+//   setPopup({
+//     title: `Продуктот: ${title} е успешно додаден во корпата!`,
+//     msg: "Во корпата можете да го одберете квантитетот на продукти од овој тип.",
+//     type: "success",
+//     isOpen: true,
+//   });
+// }}

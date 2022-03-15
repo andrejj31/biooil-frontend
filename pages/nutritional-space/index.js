@@ -2,9 +2,13 @@ import React from "react";
 import BlogArticle from "../../components/Blogs/BlogArticle";
 import Head from "next/head";
 import Link from "next/link";
+import Paggination from "../../components/Reusable/Paggination";
 
 export default function NutritionalSpace(props) {
-  const { data } = props;
+  const {
+    data: { data },
+  } = props;
+  console.log(props);
   return (
     <>
       <Head>
@@ -16,17 +20,23 @@ export default function NutritionalSpace(props) {
             return <BlogArticle key={i} {...blog} />;
           })}
         </div>
+        <Paggination pageCount={props.pageCount}></Paggination>
       </section>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const resp = await fetch(`${process.env.SERVER_API}blogs`);
+export async function getServerSideProps(context) {
+  const query = context.resolvedUrl.split("?")[1];
+  const itemsPerPage = 8;
+  const resp = await fetch(
+    `${process.env.SERVER_API}blogs?${query}&limit=${itemsPerPage}`
+  );
   const data = await resp.json();
-
+  const pageCount = Math.ceil(
+    parseInt(data.totalCount) / parseInt(itemsPerPage)
+  );
   return {
-    props: data,
-    revalidate: 1,
+    props: { data, pageCount },
   };
 }

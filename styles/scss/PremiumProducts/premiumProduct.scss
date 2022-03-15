@@ -42,6 +42,23 @@
   }
   &__body {
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  &__cta {
+    border-radius: 1rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background-color: $color-green-light-2;
+    align-self: stretch;
+    text-align: center;
+    margin-top: 1rem;
+    text-transform: none;
   }
   &__bottom {
     margin-top: 1rem;

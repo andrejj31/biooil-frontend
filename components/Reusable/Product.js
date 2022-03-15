@@ -16,20 +16,20 @@ export default function Product({ landing, title, image, slug, translate }) {
         <img src="/Flags/al.png" alt="Albania" />
         <img src="/Flags/swiss.png" alt="Switzeland" />
       </div>
-      {/* <img className="product__img" src={`/Products/${imgUrl}`} alt="" /> */}
-      {/* <img
+      {/* <img className="product__img" src={`/Products/${url}`} alt="" /> */}
+      <img
         className="product__img"
-        src={`${process.env.SERVER_IMAGES}Products/${imgUrl}`}
+        src={`${process.env.NEXT_PUBLIC_SERVER_IMAGES}/${url}`}
         alt=""
-      /> */}
-      <Image
+      />
+      {/* <Image
         className="product__img"
         loader={() => myLoader(url)}
         src={`${process.env.SERVER_IMAGES}${url}`}
-        width="115"
-        height="200"
+        width="95"
+        height="150"
         priority={true}
-      ></Image>
+      ></Image> */}
       <div className="product__content">
         <hr />
         <div className="product__about">

@@ -2,19 +2,45 @@ import React from "react";
 import Aform from "../../../components/Reusable/Aform";
 import Head from "next/head";
 export default function Edit(props) {
-  const { source, title, link, _id: id } = props.data;
+  const {
+    source,
+    title,
+    link,
+    _id: id,
+    slug,
+    image,
+    content,
+  } = props?.data?.data || {};
   const fields = [
     {
       name: "source",
       label: "Извор",
+      placeholder: "izvor.com",
     },
     {
       name: "title",
       label: "Наслов",
+      placeholder: "Наслов на интервјуто",
     },
     {
       name: "link",
       label: "Линк",
+      placeholder: "Линк за пристап",
+    },
+    {
+      name: "slug",
+      label: "Slug",
+      placeholder: "naslov-naslov",
+    },
+    {
+      name: "content",
+      label: "Содржина",
+      textEditor: true,
+    },
+    {
+      name: "image",
+      label: "Насловна фотографија",
+      type: "file",
     },
   ];
 
@@ -22,6 +48,9 @@ export default function Edit(props) {
     source,
     title,
     link,
+    slug,
+    image,
+    content,
   };
   return (
     <>
@@ -33,7 +62,7 @@ export default function Edit(props) {
         title={"Измени го интервјуто"}
         initialValues={initialValues}
         req={{
-          url: `interviews/${props.data._id}`,
+          url: `interviews/${props?.data?._id}`,
           method: "PATCH",
           options: { credentials: "include" },
         }}
@@ -49,13 +78,13 @@ export async function getStaticPaths() {
 
   const paths = dataReady.data.map((interview) => ({
     params: {
-      id: interview._id,
+      id: interview.slug,
     },
   }));
-
+  console.log(paths);
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -63,8 +92,10 @@ export async function getStaticProps({ params }) {
   const { id } = params;
   const res = await fetch(`${process.env.SERVER_API}interviews/${id}`);
   const interview = await res.json();
+  console.log(interview);
+
   return {
-    props: interview.data,
+    props: interview,
     revalidate: 1,
   };
 }

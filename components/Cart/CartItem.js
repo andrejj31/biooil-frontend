@@ -4,13 +4,27 @@ import myLoader from "../../utils/loader";
 
 export default function CartItem(item) {
   const { removeItem, incrementItem, decrementItem } = useCartContext();
-  const { title, image, quan, quantity, price, fullPrice, id } = item;
-  const loader = myLoader(`/Products/${image}.png`);
+  const {
+    title,
+    image,
+    quan,
+    quantity,
+    price,
+    fullPrice,
+    id,
+    premium = false,
+  } = item;
+  let loader;
+  if (!premium) {
+    loader = myLoader(`Products/${image}.png`);
+  } else {
+    loader = myLoader(`Premium/${image}.png`);
+  }
   return (
     <article className="cart__product">
       <div className="cart__info">
         <div className="cart__img">
-          <img src={loader} alt="" />
+          <img src={loader} alt={title} />
         </div>
         <div className="cart__item">
           <h3>{title}</h3>

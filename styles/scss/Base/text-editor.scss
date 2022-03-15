@@ -2,6 +2,10 @@
   width: 100%;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  iframe {
+    max-width: 80%;
+  }
   &__head {
     background-color: #ecf0f1;
     padding: 0.5rem;

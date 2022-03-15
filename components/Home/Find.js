@@ -51,6 +51,9 @@ export default function Find() {
               <div className="find__popup">
                 <h3>ул.е - радишанска лево бр 304</h3>
                 <p>Работно време: 8:00 - 16:00</p>
+                <a href="" className="btn-link">
+                  Однеси ме
+                </a>
               </div>
             </Popup>
           )}

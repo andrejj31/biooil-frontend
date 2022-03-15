@@ -1,15 +1,39 @@
 import React from "react";
 import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
+import Paggination from "../../components/Reusable/Paggination";
 // import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Router, { useRouter } from "next/router";
+
+// Import Swiper styles
+import "swiper/css";
 
 export default function PremiumProducts(props) {
-  const { data } = props;
-  console.log(data);
+  const router = useRouter();
+
+  const {
+    data: { data },
+  } = props;
 
   const params = {
     slidesPerView: 5,
     spaceBetween: 10,
+  };
+
+  const handleBrandClick = (e) => {
+    e.preventDefault();
+    const selected = e.target.closest("[data-name]");
+    const name = selected.dataset.name;
+
+    const currentPath = router.pathname;
+    const currentQuery = { ...router.query };
+    currentQuery.manufacturer = name;
+
+    router.push({
+      pathname: currentPath,
+      query: currentQuery,
+    });
   };
 
   return (
@@ -59,7 +83,7 @@ export default function PremiumProducts(props) {
         </div>
         <div className="premium__brands">
           <div className="premium__brands-content center-content">
-            {/* <Swiper
+            <Swiper
               spaceBetween={10}
               slidesPerView={5}
               loop={true}
@@ -89,48 +113,97 @@ export default function PremiumProducts(props) {
               }}
             >
               <SwiperSlide>
-                <img src="/Premium/Brands/ime.png" alt="" />
+                <img
+                  onClick={handleBrandClick}
+                  src="/Premium/Brands/ime.png"
+                  data-name="ime"
+                  alt=""
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/biooil.png" alt="" />
+                <img
+                  onClick={handleBrandClick}
+                  src="/Premium/Brands/biooil.png"
+                  data-name="biooil"
+                  alt="Bio-oil"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/tuf.png" alt="" />
+                <img
+                  onClick={handleBrandClick}
+                  src="/Premium/Brands/tuf.png"
+                  data-name="tuf"
+                  alt="Tuf"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/fedor.png" alt="" />
+                <img
+                  src="/Premium/Brands/fedor.png"
+                  onClick={handleBrandClick}
+                  data-name="fedor"
+                  alt="Fedor"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/jomi.png" alt="" />
+                <img
+                  src="/Premium/Brands/jomi.png"
+                  alt="Jomi"
+                  data-name="jomi"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/su-mi.png" alt="" />
+                <img
+                  src="/Premium/Brands/su-mi.png"
+                  alt="Su-mi"
+                  data-name="Su-mi"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/roza-kanina.png" alt="" />
+                <img
+                  src="/Premium/Brands/roza-kanina.png"
+                  alt="Roza Kanina"
+                  data-name="roza-kanina"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/zaum.png" alt="" />
+                <img
+                  src="/Premium/Brands/zaum.png"
+                  alt="Zaum"
+                  data-name="zaum"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/saridis.png" alt="" />
+                <img
+                  src="/Premium/Brands/saridis.png"
+                  alt="Saridis"
+                  data-name="saridis"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/Premium/Brands/biomelan.png" alt="" />
+                <img
+                  src="/Premium/Brands/biomelan.png"
+                  alt="Biomelan"
+                  data-name="biomelan"
+                  onClick={handleBrandClick}
+                />
               </SwiperSlide>
-            </Swiper> */}
-            {/* <Swiper {...params}>
-              <img src="/Premium/Brands/ime.png" alt="" />
-              <img src="/Premium/Brands/biooil.png" alt="" />
-              <img src="/Premium/Brands/tuf.png" alt="" />
-              <img src="/Premium/Brands/fedor.png" alt="" />
-              <img src="/Premium/Brands/jomi.png" alt="" />
-              <img src="/Premium/Brands/su-mi.png" alt="" />
-              <img src="/Premium/Brands/roza-kanina.png" alt="" />
-              <img src="/Premium/Brands/zaum.png" alt="" />
-              <img src="/Premium/Brands/saridis.png" alt="" />
-              <img src="/Premium/Brands/biomelan.png" alt="" />
-            </Swiper> */}
+            </Swiper>
+
+            {/* <img src="/Premium/Brands/ime.png" alt="" />
+            <img src="/Premium/Brands/biooil.png" alt="" />
+            <img src="/Premium/Brands/tuf.png" alt="" />
+            <img src="/Premium/Brands/fedor.png" alt="" />
+            <img src="/Premium/Brands/jomi.png" alt="" />
+            <img src="/Premium/Brands/su-mi.png" alt="" />
+            <img src="/Premium/Brands/roza-kanina.png" alt="" />
+            <img src="/Premium/Brands/zaum.png" alt="" />
+            <img src="/Premium/Brands/saridis.png" alt="" />
+            <img src="/Premium/Brands/biomelan.png" alt="" /> */}
           </div>
         </div>
         <div className="premium__products">
@@ -141,18 +214,24 @@ export default function PremiumProducts(props) {
               })}
             </div>
           </div>
+          <Paggination pageCount={props.pageCount}></Paggination>
         </div>
       </section>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const resp = await fetch(`${process.env.SERVER_API}premium-products`);
+export async function getServerSideProps(context) {
+  const query = context.resolvedUrl.split("?")[1];
+  const itemsPerPage = 16;
+  const resp = await fetch(
+    `${process.env.SERVER_API}premium-products?${query}&limit=${itemsPerPage}`
+  );
   const data = await resp.json();
-
+  const pageCount = Math.ceil(
+    parseInt(data.totalCount) / parseInt(itemsPerPage)
+  );
   return {
-    props: data,
-    revalidate: 1,
+    props: { data, pageCount },
   };
 }

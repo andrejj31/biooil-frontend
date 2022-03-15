@@ -23,7 +23,7 @@ export default function Aform(props) {
     req.options,
     file
   );
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!e.target.querySelector(".content-invalid")) {

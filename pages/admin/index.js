@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Order from "../../components/Admin/Order";
 import Option from "../../components/Admin/Option";
 import Head from "next/head";
+import Paggination from "../../components/Reusable/Paggination";
 export default function Admin(props) {
-  const orders = props.data;
-
+  const {
+    orders: { data: orders },
+  } = props;
   const options = [
     {
       heading: "Продукти",
@@ -62,18 +64,27 @@ export default function Admin(props) {
                 return <Order key={i} {...order}></Order>;
               })}
             </div>
+
+            <Paggination pageCount={props.pageCount}></Paggination>
           </div>
         </div>
       </section>
     </>
   );
 }
-export async function getStaticProps() {
-  const res = await fetch(`${process.env.SERVER_API}orders`);
+export async function getServerSideProps(context) {
+  const query = context.resolvedUrl.split("?")[1];
+  const itemsPerPage = 9;
+  console.log(query);
+  const res = await fetch(
+    `${process.env.SERVER_API}orders?${query}&limit=${itemsPerPage}`
+  );
   const orders = await res.json();
+  const pageCount = Math.ceil(
+    parseInt(orders.totalCount) / parseInt(itemsPerPage)
+  );
   return {
-    props: orders,
-    revalidate: 1,
+    props: { orders, pageCount },
   };
 }
 

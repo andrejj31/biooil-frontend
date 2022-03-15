@@ -62,8 +62,7 @@ export default function Order(props) {
           {products.map((product, i) => {
             return (
               <h3 key={i}>
-                {product.product.title} - {product.quantity} -{" "}
-                {product.fullPrice} денари
+                - {product.quantity} - {product.fullPrice} денари
               </h3>
             );
           })}
