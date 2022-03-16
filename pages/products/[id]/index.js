@@ -32,8 +32,6 @@ export default function DynamicProduct(props) {
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Products/${image}.png`,
-              width: 800,
-              height: 600,
               alt: image,
               type: "image/jpg",
             },
