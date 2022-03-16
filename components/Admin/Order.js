@@ -60,9 +60,14 @@ export default function Order(props) {
         <h3 className="order__heading">Продукти</h3>
         <div className="order__body">
           {products.map((product, i) => {
+            let productTitle = product.product
+              ? product.product.title
+              : product.premiumProduct.title;
+
+            console.log(productTitle);
             return (
               <h3 key={i}>
-                - {product.quantity} - {product.fullPrice} денари
+                {productTitle} - {product.quantity} - {product.fullPrice} денари
               </h3>
             );
           })}

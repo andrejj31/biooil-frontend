@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import myLoader from "../../utils/loader";
 import AdminOptions from "../Reusable/AdminOptions";
-
 export default function BlogArticle({ author, title, slug, position, image }) {
   const url = `/Blogs/${image}.jpg`;
   const loaderUrl = myLoader(url);

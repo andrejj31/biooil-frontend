@@ -23,6 +23,11 @@ export default function Create() {
       placeholder: "Цена на продуктот во денари",
     },
     {
+      name: "quan",
+      label: "Количина на пакување",
+      placeholder: "Количина на пакување",
+    },
+    {
       name: "image",
       label: "Слика од продуктот",
       type: "file",
@@ -35,6 +40,7 @@ export default function Create() {
     price: "",
     link: "",
     image: "",
+    quan: "",
   };
 
   return (

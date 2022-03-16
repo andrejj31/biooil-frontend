@@ -34,6 +34,7 @@
   &__msg {
     text-align: center;
     line-height: 1.4;
+    text-transform: none;
 
     h3 {
       font-weight: 600;
@@ -55,6 +56,8 @@
   }
   &__cta {
     margin-top: 1rem;
+    background-color: $color-green-light;
+    padding: 1.2rem 3.5rem !important;
     &-fail {
       background-color: #ed7a17 !important;
     }

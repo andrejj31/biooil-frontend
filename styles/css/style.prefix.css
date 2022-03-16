@@ -232,21 +232,6 @@ button {
   .modal-fail {
     background-color: #ed7a17; }
 
-.swiper-container {
-  width: 480px; }
-
-.swiper-wrapper {
-  display: flex;
-  align-items: center; }
-
-@media screen and (min-width: 1000px) {
-  .swiper-container {
-    width: 1000px; } }
-
-@media screen and (min-width: 400px) {
-  .swiper-container {
-    width: 400px; } }
-
 .pagination {
   display: flex;
   align-items: center;
@@ -566,7 +551,8 @@ button {
         height: 15rem; } }
   .popup__msg {
     text-align: center;
-    line-height: 1.4; }
+    line-height: 1.4;
+    text-transform: none; }
     .popup__msg h3 {
       font-weight: 600;
       color: #343434;
@@ -582,7 +568,9 @@ button {
         .popup__msg p {
           font-size: 1.3rem; } }
   .popup__cta {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    background-color: #2ed47b;
+    padding: 1.2rem 3.5rem !important; }
     .popup__cta-fail {
       background-color: #ed7a17 !important; }
 

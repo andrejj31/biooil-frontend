@@ -1,23 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import myLoader from "../../utils/loader";
-
+import FacebookShare from "../Reusable/FacebookShare";
 export default function InterviewPost({ source, title, slug, image, content }) {
   const url = `/Interviews/${image}.jpg`;
   const loaderUrl = myLoader(url);
   return (
     <article className="blog__article">
-      <iframe
-        className="blog__facebook"
-        src="https://www.facebook.com/plugins/share_button.php?href=https://biooil-frontend.vercel.app/nutritional-space/naslov-naslov&layout=button_count&size=large&width=110&height=28&appId"
-        width={110}
-        height={28}
-        style={{ border: "none", overflow: "hidden" }}
-        scrolling="no"
-        frameBorder={0}
-        allowFullScreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-      />
+      <FacebookShare url={`interviews/${slug}`}></FacebookShare>
       <div className="blog__img">
         {/* <Image
           loader={() => myLoader(url)}

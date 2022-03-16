@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useState } from "react";
 import ProductsData from "../../../data/ProductsData";
 import Popup from "../../../components/Reusable/Popup";
 // import Image from "next/image";
 import myLoader from "../../../utils/loader";
 import { useCartContext } from "../../../context/cartContext";
+import { NextSeo } from "next-seo";
+
 export default function DynamicProduct(props) {
   const [popup, setPopup] = useState({ isOpen: false });
   const {
@@ -21,9 +22,7 @@ export default function DynamicProduct(props) {
   const loaderUrl = myLoader(`/Products/${image}.png`);
   return (
     <>
-      <Head>
-        <title>{`BioOil - ${title}`}</title>
-      </Head>
+      <NextSeo title={`BioOil - ${title}`} description={`BioOil - ${title}`} />
       <section className="item">
         <div className="item__head">
           <div className="item__headcontent center-content">
@@ -47,7 +46,7 @@ export default function DynamicProduct(props) {
                     onClick={(e) => {
                       addItem({ id, title, quan, image, price });
                       setPopup({
-                        title: `Продуктот: ${title} е успешно додаден во корпата!`,
+                        title: `Продуктот: "${title}" е успешно додаден во корпата!`,
                         msg: "Во корпата можете да го одберете квантитетот на продукти од овој тип.",
                         type: "success",
                         isOpen: true,

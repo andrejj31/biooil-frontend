@@ -1,11 +1,11 @@
 import React from "react";
-import Head from "next/head";
 import Product from "../../components/PremiumProducts/Product";
 import Paggination from "../../components/Reusable/Paggination";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import Router, { useRouter } from "next/router";
 import PremiumProductsData from "../../data/PremiumProductsData";
+import { NextSeo } from "next-seo";
 
 const animation = { duration: 55000, easing: (t) => t };
 export default function PremiumProducts(props) {
@@ -83,9 +83,11 @@ export default function PremiumProducts(props) {
 
   return (
     <>
-      <Head>
-        <title>BioOil - Премиум продукти</title>
-      </Head>
+      <NextSeo
+        title={`BioOil - Премиум продукти`}
+        description={"BioOil - Премиум продукти"}
+      />
+
       <section className="premium">
         <div className="premium__head">
           <div className="center-content">

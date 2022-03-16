@@ -3,7 +3,7 @@ import Aform from "../../../components/Reusable/Aform";
 import Head from "next/head";
 
 export default function Edit(props) {
-  const { title, manufacturer, link, image, price } = props.data;
+  const { title, manufacturer, link, image, price, quan } = props.data;
   const fields = [
     {
       name: "title",
@@ -22,6 +22,10 @@ export default function Edit(props) {
       label: "Цена на продуктот во денари",
     },
     {
+      name: "quan",
+      label: "Количина на пакување",
+    },
+    {
       name: "image",
       label: "Слика од продуктот",
       type: "file",
@@ -34,6 +38,7 @@ export default function Edit(props) {
     link,
     price,
     image,
+    quan,
   };
   return (
     <>

@@ -1,18 +1,20 @@
 import React from "react";
-import Head from "next/head";
 // import Image from "next/image";
 import TeamData from "../../data/TeamData";
 import { useCartContext } from "../../context/cartContext";
 import { useAuthContext } from "../../context/authContext";
 import AdminOptions from "../../components/Reusable/AdminOptions";
 import Employee from "../../components/Team/Employee";
+import { NextSeo } from "next-seo";
+
 export default function Team(props) {
   const { data } = props;
   return (
     <>
-      <Head>
-        <title>BioOil - Тим</title>
-      </Head>
+      <NextSeo
+        title={`BioOil - Тим`}
+        description={"BioOil - Премиум продукти"}
+      />
       <section className="team">
         <div className="team__head"></div>
         <div className="team__main">

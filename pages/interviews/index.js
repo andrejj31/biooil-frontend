@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Head from "next/head";
 import Interview from "../../components/Interviews/Interview";
 import Paggination from "../../components/Reusable/Paggination";
-
+import { NextSeo } from "next-seo";
 export default function Interviews(props) {
   const { data } = props;
 
@@ -10,9 +10,10 @@ export default function Interviews(props) {
   const pageCount = Math.ceil(props.totalCount / itemsPerPage);
   return (
     <>
-      <Head>
-        <title>BioOil - Интервјуа</title>
-      </Head>
+      <NextSeo
+        title={`BioOil - Интервјуа`}
+        description={"BioOil - Интервјуа"}
+      />
       <section className="interviews">
         <div className="interviews__content center-content">
           {data.map((interview, i) => {

@@ -1,14 +1,33 @@
 import React from "react";
 import BlogPost from "../../../components/Blogs/BlogPost";
+import { NextSeo } from "next-seo";
 
 export default function Blog(props) {
   const { author, title, slug, position, image, content } = props.data || {};
   return (
-    <section className="blog">
-      <div className="center-content">
-        <BlogPost {...props.data}></BlogPost>
-      </div>
-    </section>
+    <>
+      <NextSeo
+        title={`BioOil - ${title}`}
+        description={title}
+        openGraph={{
+          type: "article",
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Blogs/${image}.jpg`,
+              width: 800,
+              height: 600,
+              alt: image,
+              type: "image/jpg",
+            },
+          ],
+        }}
+      />
+      <section className="blog">
+        <div className="center-content">
+          <BlogPost {...props.data}></BlogPost>
+        </div>
+      </section>
+    </>
   );
 }
 

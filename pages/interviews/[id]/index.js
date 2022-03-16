@@ -1,14 +1,34 @@
 import React from "react";
 import InterviewPost from "../../../components/Interviews/InterviewPost";
+import { NextSeo } from "next-seo";
 
 export default function Interview(props) {
   const { source, title, slug, link, image, content } = props.data || {};
   return (
-    <section className="blog">
-      <div className="center-content">
-        <InterviewPost {...props.data}></InterviewPost>
-      </div>
-    </section>
+    <>
+      <NextSeo
+        title={`BioOil - ${source}`}
+        description={title}
+        openGraph={{
+          type: "article",
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Interviews/${image}.jpg`,
+              width: 800,
+              height: 600,
+              alt: image,
+              type: "image/jpg",
+            },
+          ],
+        }}
+      />
+      <section className="blog">
+        <div className="center-content">
+          <InterviewPost {...props.data}></InterviewPost>
+        </div>
+      </section>
+      );
+    </>
   );
 }
 

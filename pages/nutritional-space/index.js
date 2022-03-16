@@ -3,6 +3,7 @@ import BlogArticle from "../../components/Blogs/BlogArticle";
 import Head from "next/head";
 import Link from "next/link";
 import Paggination from "../../components/Reusable/Paggination";
+import { NextSeo } from "next-seo";
 
 export default function NutritionalSpace(props) {
   const {
@@ -11,9 +12,10 @@ export default function NutritionalSpace(props) {
   console.log(props);
   return (
     <>
-      <Head>
-        <title>BioOil - Нутритивно ќоше</title>
-      </Head>
+      <NextSeo
+        title={`BioOil - Нутритивно ќоше`}
+        description={"BioOil - Нутритивно ќоше"}
+      />
       <section className="articles">
         <div className="articles__content center-content">
           {data.map((blog, i) => {

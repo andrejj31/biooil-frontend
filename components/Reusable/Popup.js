@@ -32,7 +32,7 @@ export default function Popup(props) {
         </div>
         <button
           onClick={handleClose}
-          className={`popup__cta basic-cta basic-cta-round ${
+          className={`popup__cta btn btn-green btn-round ${
             type === "fail" ? "popup__cta-fail" : ""
           }`}
         >

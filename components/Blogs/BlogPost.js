@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import myLoader from "../../utils/loader";
+import FacebookShare from "../Reusable/FacebookShare";
 
 export default function BlogPost({
   author,
@@ -14,6 +15,7 @@ export default function BlogPost({
   const loaderUrl = myLoader(url);
   return (
     <article className="blog__article">
+      <FacebookShare url={`nutritional-space/${slug}`}></FacebookShare>
       <div className="blog__img">
         {/* <Image
           loader={() => myLoader(url)}

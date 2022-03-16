@@ -200,27 +200,6 @@
   }
 }
 
-.swiper-container {
-  width: 480px;
-}
-
-.swiper-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-@media screen and (min-width: 1000px) {
-  .swiper-container {
-    width: 1000px;
-  }
-}
-
-@media screen and (min-width: 400px) {
-  .swiper-container {
-    width: 400px;
-  }
-}
-
 .pagination {
   display: flex;
   align-items: center;

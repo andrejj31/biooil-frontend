@@ -6,7 +6,7 @@ import { useCartContext } from "../../context/cartContext";
 import useForm from "../../hooks/useForm";
 import useFetch from "../../hooks/useFetch";
 import { useRouter } from "next/router";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 export default function Cart() {
   const { getItems, clearCart } = useCartContext();
   const cartItems = getItems();
@@ -141,9 +141,10 @@ export default function Cart() {
   if (!cartItems.items.length) {
     return (
       <>
-        <Head>
-          <title>BioOil - Шопинг Картичка</title>
-        </Head>
+        <NextSeo
+          title={`BioOil - Шопинг Картичка`}
+          description={"Шопинг картичка"}
+        />
         <div className="cart__empty">
           <h3>Вашата корпа е празна !</h3>
           <p>Додајте продукти за да продолжите.</p>
@@ -160,9 +161,10 @@ export default function Cart() {
   }
   return (
     <>
-      <Head>
-        <title>BioOil - Шопинг Картичка</title>
-      </Head>
+      <NextSeo
+        title={`BioOil - Шопинг Картичка`}
+        description={"Шопинг картичка"}
+      />
       <section className="cart">
         {cartItems.items.length > 0 && (
           <div className="cart_container">
