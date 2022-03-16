@@ -11,6 +11,7 @@ export default function Blog(props) {
         description={title}
         openGraph={{
           type: "article",
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}/nutritional-space/${slug}`,
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Blogs/${image}.jpg`,

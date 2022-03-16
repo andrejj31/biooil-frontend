@@ -16,13 +16,30 @@ export default function DynamicProduct(props) {
     pridobivki,
     _id: id,
     price,
+    slug,
   } = props.data || {};
 
   const { addItem, isInCart } = useCartContext();
   const loaderUrl = myLoader(`/Products/${image}.png`);
   return (
     <>
-      <NextSeo title={`BioOil - ${title}`} description={`BioOil - ${title}`} />
+      <NextSeo
+        title={`BioOil - ${title}`}
+        description={`BioOil - ${title}`}
+        openGraph={{
+          type: "article",
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}/products/${slug}`,
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Products/${image}.png`,
+              width: 800,
+              height: 600,
+              alt: image,
+              type: "image/jpg",
+            },
+          ],
+        }}
+      />
       <section className="item">
         <div className="item__head">
           <div className="item__headcontent center-content">

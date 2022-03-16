@@ -13,7 +13,10 @@ export default function Team(props) {
     <>
       <NextSeo
         title={`BioOil - Тим`}
-        description={"BioOil - Премиум продукти"}
+        description={"BioOil - Тим"}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}team`,
+        }}
       />
       <section className="team">
         <div className="team__head"></div>

@@ -14,6 +14,9 @@ export default function NutritionalSpace(props) {
       <NextSeo
         title={`BioOil - Нутритивно ќоше`}
         description={"BioOil - Нутритивно ќоше"}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}nutritional-space`,
+        }}
       />
       <section className="articles">
         <div className="articles__content center-content">

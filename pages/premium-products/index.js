@@ -86,6 +86,9 @@ export default function PremiumProducts(props) {
       <NextSeo
         title={`BioOil - Премиум продукти`}
         description={"BioOil - Премиум продукти"}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}premium-products`,
+        }}
       />
 
       <section className="premium">

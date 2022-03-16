@@ -144,6 +144,9 @@ export default function Cart() {
         <NextSeo
           title={`BioOil - Шопинг Картичка`}
           description={"Шопинг картичка"}
+          openGraph={{
+            url: `${process.env.NEXT_PUBLIC_SITE_LINK}cart`,
+          }}
         />
         <div className="cart__empty">
           <h3>Вашата корпа е празна !</h3>
