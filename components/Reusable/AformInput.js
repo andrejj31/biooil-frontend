@@ -27,7 +27,6 @@ export default function AformInput({
     setVal(e.target.value);
   };
 
-  console.log(type);
   const handleChange = type !== "file" ? handleInputChange : handlePhotoChange;
   return (
     <div className="form-group aform__group">

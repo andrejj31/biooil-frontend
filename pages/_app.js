@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
       <DefaultSeo
         openGraph={{
           type: "website",
-          url: "https://biooil-frontend.vercel.app/",
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}`,
           site_name: "BioOil",
         }}
         twitter={{

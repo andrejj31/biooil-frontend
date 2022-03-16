@@ -13,7 +13,6 @@ export default function useFetch(
     try {
       let requestOptions;
 
-      console.log(file);
       if (file) {
         requestOptions = {
           method: method,

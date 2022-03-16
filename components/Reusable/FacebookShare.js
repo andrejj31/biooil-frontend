@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function FacebookShare({ url }) {
-  console.log(`href=${process.env.NEXT_PUBLIC_SITE_LINK}${url}`);
   return (
     <iframe
       className="blog__facebook"

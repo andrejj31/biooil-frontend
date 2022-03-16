@@ -11,6 +11,7 @@ export default function Interview(props) {
         description={title}
         openGraph={{
           type: "article",
+          url: `${process.env.NEXT_PUBLIC_SITE_LINK}/interviews/${slug}`,
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SERVER_IMAGES}/Interviews/${image}.jpg`,

@@ -64,7 +64,6 @@ export default function Order(props) {
               ? product.product.title
               : product.premiumProduct.title;
 
-            console.log(productTitle);
             return (
               <h3 key={i}>
                 {productTitle} - {product.quantity} - {product.fullPrice} денари

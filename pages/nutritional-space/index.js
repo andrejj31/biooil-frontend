@@ -9,7 +9,6 @@ export default function NutritionalSpace(props) {
   const {
     data: { data },
   } = props;
-  console.log(props);
   return (
     <>
       <NextSeo

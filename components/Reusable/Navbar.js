@@ -21,7 +21,6 @@ export default function Navbar() {
   });
 
   const handleLogout = () => {
-    console.log("ee");
     setBody({ logout: "true" });
   };
 

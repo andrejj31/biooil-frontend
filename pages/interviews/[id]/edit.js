@@ -81,7 +81,6 @@ export async function getStaticPaths() {
       id: interview.slug,
     },
   }));
-  console.log(paths);
   return {
     paths,
     fallback: false,
@@ -92,7 +91,6 @@ export async function getStaticProps({ params }) {
   const { id } = params;
   const res = await fetch(`${process.env.SERVER_API}interviews/${id}`);
   const interview = await res.json();
-  console.log(interview);
 
   return {
     props: interview,

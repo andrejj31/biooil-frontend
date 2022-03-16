@@ -21,7 +21,6 @@ export default function TextEditor({ value, handleInputChange, name }) {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    console.log("ee");
     if (!value) return;
     contentRef.current.innerHTML = value;
   }, []);

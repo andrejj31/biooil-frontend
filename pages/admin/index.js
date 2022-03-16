@@ -75,7 +75,6 @@ export default function Admin(props) {
 export async function getServerSideProps(context) {
   const query = context.resolvedUrl.split("?")[1];
   const itemsPerPage = 9;
-  console.log(query);
   const res = await fetch(
     `${process.env.SERVER_API}orders?${query}&limit=${itemsPerPage}`
   );

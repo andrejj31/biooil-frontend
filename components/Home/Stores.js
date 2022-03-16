@@ -33,9 +33,7 @@ export default function Stores() {
           },
         },
       },
-      slideChanged() {
-        console.log("slide changed");
-      },
+      slideChanged() {},
       created(s) {
         s.moveToIdx(5, true, animation);
       },
